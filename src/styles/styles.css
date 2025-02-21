@@ -3,8 +3,13 @@
   color: black;
 }
 
+body {
+  background-color: black;
+}
+
 main {
-  background-color: white;
+  padding: 0;
+  margin: 0;
 }
 main nav {
   background-color: pink;
