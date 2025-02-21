@@ -12,22 +12,28 @@ main {
   margin: 0;
 }
 main nav {
-  background-color: pink;
   padding: 5px;
   display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 100px;
 }
 main nav header {
+  height: 60%;
   font-weight: 600;
-  font-size: larger;
+  width: 100%;
+  background-color: black;
 }
 main nav header h1 {
+  color: white;
+  font-size: x-large;
   position: sticky;
   padding: 2px;
 }
 main nav .links {
   position: absolute;
   right: 30px;
-  top: 70px;
+  top: 85px;
   display: flex;
   gap: 10px;
   text-decoration: none;
@@ -82,7 +88,6 @@ main nav .links .link.active {
   margin: 5px auto;
   padding: 5px;
   background-color: pink;
-  width: 85.5%;
   border-radius: 10px;
   font-size: larger;
 }
@@ -98,7 +103,7 @@ main nav .links .link.active {
 .home .products .product-items .product-item {
   height: 250px;
   width: 50%;
-  width: 170px;
+  width: 160px;
 }
 .home .products .product-items .product-item .product-title {
   background-color: pink;
@@ -112,7 +117,7 @@ main nav .links .link.active {
   background-color: pink;
   height: 150px;
   width: 200px;
-  width: 170px;
+  width: 160px;
   -o-object-fit: cover;
      object-fit: cover;
   border-top-left-radius: 10px;
