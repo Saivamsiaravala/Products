@@ -30,7 +30,7 @@ $fontWeight1: 600;
   @return map-get($paddings, $padding-name);
 }
 
-$desktop: 640px;
+$desktop: 720px;
 
 @mixin desktop {
   @media (min-width:#{$desktop}) {
@@ -156,8 +156,8 @@ main {
       text-align: center;
       .product-item {
         height: 250px;
-        width: 60%;
-        width: 200px;
+        width: 50%;
+        width: 170px;
         // border: 2px solid black;
         .product-title {
           background-color: color(backGroundColor1);
@@ -179,6 +179,8 @@ main {
 
             height: 150px;
             width: 200px;
+            width: 170px;
+
             object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
