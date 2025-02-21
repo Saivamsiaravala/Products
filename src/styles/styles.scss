@@ -30,7 +30,7 @@ $fontWeight1: 600;
   @return map-get($paddings, $padding-name);
 }
 
-$desktop: 720px;
+$desktop: 640px;
 
 @mixin desktop {
   @media (min-width:#{$desktop}) {
