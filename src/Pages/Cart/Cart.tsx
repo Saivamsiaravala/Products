@@ -8,7 +8,7 @@ const Cart = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1.5 }}
     >
-      Cart
+      <div className="cart">Carts</div>
     </motion.div>
   );
 };

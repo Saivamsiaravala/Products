@@ -8,7 +8,7 @@ const Login = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 1.5 }}
     >
-      Login
+      <div className="login">Login</div>
     </motion.div>
   );
 };

@@ -17,15 +17,7 @@ const App = () => {
               <FaHome />
             </NavLink>
           </div>
-          <div className="link">
-            <NavLink
-              title="Login"
-              to="login"
-              className={(isActive) => isActive && "isActive"}
-            >
-              <RiLoginBoxFill />
-            </NavLink>
-          </div>
+
           <div className="link">
             <NavLink
               title="Wishlist"
@@ -42,6 +34,15 @@ const App = () => {
               className={(isActive) => isActive && "isActive"}
             >
               <FaCartArrowDown />
+            </NavLink>
+          </div>
+          <div className="link">
+            <NavLink
+              to="login"
+              title="Login"
+              className={(isActive) => isActive && "isActive"}
+            >
+              <RiLoginBoxFill />
             </NavLink>
           </div>
         </div>
