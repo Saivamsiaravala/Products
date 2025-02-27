@@ -3,7 +3,7 @@ import { empty_cart } from "../../assets";
 import { useAppSelector } from "../../hooks";
 
 const Cart = () => {
-  const isLoggedIn: string = useAppSelector((store) => store.login.isLoggedIn);
+  const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
   return (
     <motion.div
       initial={{ opacity: 0 }}
