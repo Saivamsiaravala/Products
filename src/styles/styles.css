@@ -53,7 +53,6 @@ main .home .products .product-items {
 }
 main .home .products .product-items .product-item {
   height: 250px;
-  width: 50%;
   width: 160px;
 }
 main .home .products .product-items .product-item .product-title {
@@ -83,44 +82,42 @@ main .home .products .product-items .product-item .price-wish-cart {
   padding: 5px 0;
   display: flex;
   height: 30px;
-  width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  width: 100%;
+  font-size: medium;
 }
-main .home .products .product-items .product-item .price-wish-cart .price {
-  color: black;
+main .home .products .product-items .product-item .price-wish-cart .price-div,
+main .home .products .product-items .product-item .price-wish-cart .wishlist-div,
+main .home .products .product-items .product-item .price-wish-cart .cart-div {
+  margin: 2px;
+  background-color: pink;
+  size: 40;
+  height: 30px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  background-color: pink;
-  border-right: 2px solid black;
+}
+main .home .products .product-items .product-item .price-wish-cart .price-div:hover,
+main .home .products .product-items .product-item .price-wish-cart .wishlist-div:hover,
+main .home .products .product-items .product-item .price-wish-cart .cart-div:hover {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+main .home .products .product-items .product-item .price-wish-cart .price-div {
   border-bottom-left-radius: 10px;
 }
-main .home .products .product-items .product-item .price-wish-cart .price:hover {
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+main .home .products .product-items .product-item .price-wish-cart .price-div .price {
+  margin: auto;
 }
-main .home .products .product-items .product-item .price-wish-cart .wishlist {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: pink;
-  width: 100%;
-  border-right: 2px solid black;
+main .home .products .product-items .product-item .price-wish-cart .wishlist-div .wishlist-icon {
+  margin: auto;
 }
-main .home .products .product-items .product-item .price-wish-cart .wishlist:hover {
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-main .home .products .product-items .product-item .price-wish-cart .cart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: pink;
-  width: 100%;
+main .home .products .product-items .product-item .price-wish-cart .cart-div {
   border-bottom-right-radius: 10px;
 }
-main .home .products .product-items .product-item .price-wish-cart .cart:hover {
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+main .home .products .product-items .product-item .price-wish-cart .cart-div .cart-icon {
+  margin: auto;
 }
 main nav {
   padding: 5px;
@@ -172,11 +169,96 @@ main nav .links .link.active {
 }
 main .cart {
   color: white;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-main .login {
+main .cart .cart-title {
   color: white;
 }
+main .cart .empty-cart {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+}
+main .login-panel {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  width: 300px;
+  height: 200px;
+  border: 2px solid white;
+}
+main .login-panel .login-signup {
+  display: flex;
+  gap: 2px;
+}
+main .login-panel .login-signup .login,
+main .login-panel .login-signup .signup {
+  color: black;
+  width: 50%;
+  height: 30px;
+}
+main .login-panel .login-signup .active {
+  background: linear-gradient(90deg, rgb(158, 231, 27) 25%, rgb(22, 182, 153) 100%);
+  color: white;
+  font-weight: 900;
+}
+main .login-panel .main-panel {
+  color: white;
+}
+main .login-panel .main-panel .login-form,
+main .login-panel .main-panel .signup-form {
+  padding: 7px;
+}
+main .login-panel .main-panel .login-form .form,
+main .login-panel .main-panel .signup-form .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+main .login-panel .main-panel .login-form .form .name,
+main .login-panel .main-panel .signup-form .form .name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+main .login-panel .main-panel .login-form .form .name .name-label,
+main .login-panel .main-panel .signup-form .form .name .name-label {
+  text-align: center;
+  color: white;
+}
+main .login-panel .main-panel .login-form .form .name .name-input,
+main .login-panel .main-panel .signup-form .form .name .name-input {
+  text-align: center;
+  border-radius: 4px;
+}
+main .login-panel .main-panel .login-form .form .password,
+main .login-panel .main-panel .signup-form .form .password {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+main .login-panel .main-panel .login-form .form .password .password-label,
+main .login-panel .main-panel .signup-form .form .password .password-label {
+  text-align: center;
+  color: white;
+}
+main .login-panel .main-panel .login-form .form .password .password-input,
+main .login-panel .main-panel .signup-form .form .password .password-input {
+  text-align: center;
+  border-radius: 4px;
+}
+main .login-panel .main-panel .login-form .form .submit:hover,
+main .login-panel .main-panel .signup-form .form .submit:hover {
+  background-color: blue;
+}
 main .wishlist {
+  margin: 10px;
   color: white;
   display: flex;
   flex-direction: column;

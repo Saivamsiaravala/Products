@@ -7,6 +7,14 @@ $colors: (
   backGroundColor2: white,
   backgroundColor3: -webkit-linear-gradient(to bottom, #0f2027, #203a43, #2c5364),
   backgroundColor4: blue,
+  gradient1:
+    linear-gradient(0deg, rgba(43, 61, 61, 1) 6%, rgba(73, 14, 73, 1) 100%),
+  gradient2:
+    linear-gradient(
+      90deg,
+      rgba(158, 231, 27, 1) 25%,
+      rgba(22, 182, 153, 1) 100%
+    ),
 );
 
 $font: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -107,7 +115,6 @@ main {
         text-align: center;
         .product-item {
           height: 250px;
-          width: 50%;
           width: 160px;
           // border: 2px solid black;
           .product-title {
@@ -154,67 +161,101 @@ main {
             padding: padding(padding2) 0;
             display: flex;
             height: 30px;
-            width: 100%;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
-
-            .price {
-              color: black;
+            width: 100%;
+            font-size: medium;
+            .price-div,
+            .wishlist-div,
+            .cart-div {
+              margin: margin(margin1);
+              background-color: color(backGroundColor1);
+              size: 40;
+              height: 30px;
+              width: 100%;
               display: flex;
               justify-content: center;
               align-items: center;
-              width: 100%;
-              background-color: color(backGroundColor1);
-              border-right: 2px solid black;
+              &:hover {
+                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+                  rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+                  rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+                  rgba(0, 0, 0, 0.06) 0px 2px 1px,
+                  rgba(0, 0, 0, 0.09) 0px 4px 2px,
+                  rgba(0, 0, 0, 0.09) 0px 8px 4px,
+                  rgba(0, 0, 0, 0.09) 0px 16px 8px,
+                  rgba(0, 0, 0, 0.09) 0px 32px 16px;
+              }
+            }
+            .price-div {
               border-bottom-left-radius: 10px;
-              &:hover {
-                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-                  rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-                  rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-                  rgba(0, 0, 0, 0.06) 0px 2px 1px,
-                  rgba(0, 0, 0, 0.09) 0px 4px 2px,
-                  rgba(0, 0, 0, 0.09) 0px 8px 4px,
-                  rgba(0, 0, 0, 0.09) 0px 16px 8px,
-                  rgba(0, 0, 0, 0.09) 0px 32px 16px;
-              }
-            }
-            .wishlist {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              background-color: color(backGroundColor1);
 
-              width: 100%;
-              border-right: 2px solid black;
-              &:hover {
-                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-                  rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-                  rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-                  rgba(0, 0, 0, 0.06) 0px 2px 1px,
-                  rgba(0, 0, 0, 0.09) 0px 4px 2px,
-                  rgba(0, 0, 0, 0.09) 0px 8px 4px,
-                  rgba(0, 0, 0, 0.09) 0px 16px 8px,
-                  rgba(0, 0, 0, 0.09) 0px 32px 16px;
+              .price {
+                margin: auto;
               }
             }
-            .cart {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              background-color: color(backGroundColor1);
-              width: 100%;
+            .wishlist-div {
+              .wishlist-icon {
+                margin: auto;
+              }
+            }
+            .cart-div {
               border-bottom-right-radius: 10px;
-              &:hover {
-                box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-                  rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-                  rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-                  rgba(0, 0, 0, 0.06) 0px 2px 1px,
-                  rgba(0, 0, 0, 0.09) 0px 4px 2px,
-                  rgba(0, 0, 0, 0.09) 0px 8px 4px,
-                  rgba(0, 0, 0, 0.09) 0px 16px 8px,
-                  rgba(0, 0, 0, 0.09) 0px 32px 16px;
+              .cart-icon {
+                margin: auto;
               }
             }
+
+            // .price {
+            //   color: black;
+            //   display: flex;
+            //   justify-content: center;
+            //   align-items: center;
+            //   background-color: color(backGroundColor1);
+            //   border-right: 2px solid black;
+            //   border-bottom-left-radius: 10px;
+            //   &:hover {
+            //     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+            //       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+            //       rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+            //       rgba(0, 0, 0, 0.06) 0px 2px 1px,
+            //       rgba(0, 0, 0, 0.09) 0px 4px 2px,
+            //       rgba(0, 0, 0, 0.09) 0px 8px 4px,
+            //       rgba(0, 0, 0, 0.09) 0px 16px 8px,
+            //       rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            //   }
+            // }
+            // .wishlist {
+            //   background-color: color(backGroundColor1);
+            //   height: 30px;
+            //   &:hover {
+            //     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+            //       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+            //       rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+            //       rgba(0, 0, 0, 0.06) 0px 2px 1px,
+            //       rgba(0, 0, 0, 0.09) 0px 4px 2px,
+            //       rgba(0, 0, 0, 0.09) 0px 8px 4px,
+            //       rgba(163, 129, 129, 0.09) 0px 16px 8px,
+            //       rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            //   }
+            // }
+            // .cart {
+            //   display: flex;
+            //   justify-content: center;
+            //   align-items: center;
+            //   background-color: color(backGroundColor1);
+            //   border-bottom-right-radius: 10px;
+            //   &:hover {
+            //     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+            //       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+            //       rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+            //       rgba(0, 0, 0, 0.06) 0px 2px 1px,
+            //       rgba(0, 0, 0, 0.09) 0px 4px 2px,
+            //       rgba(0, 0, 0, 0.09) 0px 8px 4px,
+            //       rgba(0, 0, 0, 0.09) 0px 16px 8px,
+            //       rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            //   }
+            // }
           }
         }
       }
@@ -277,11 +318,91 @@ main {
   }
   .cart {
     color: color(textColor2);
+    margin: margin(margin4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .cart-title {
+      color: color(textColor2);
+    }
+    .empty-cart {
+      height: 300px;
+      width: 300px;
+      border-radius: 10px;
+    }
   }
-  .login {
-    color: color(textColor2);
+  .login-panel {
+    display: flex;
+    flex-direction: column;
+    margin: margin(margin4) auto;
+    width: 300px;
+    height: 200px;
+    border: 2px solid white;
+    .login-signup {
+      display: flex;
+      gap: 2px;
+      .login,
+      .signup {
+        color: color(textColor1);
+        width: 50%;
+        height: 30px;
+      }
+      .active {
+        background: color(gradient2);
+        color: color(textColor2);
+        font-weight: 900;
+      }
+    }
+    .main-panel {
+      color: color(textColor2);
+      .login-form,
+      .signup-form {
+        padding: padding(padding3);
+        .form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          .name {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .name-label {
+              text-align: center;
+              color: color(textColor2);
+            }
+            .name-input {
+              text-align: center;
+              border-radius: 4px;
+            }
+          }
+          .password {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .password-label {
+              text-align: center;
+
+              color: color(textColor2);
+            }
+            .password-input {
+              text-align: center;
+              border-radius: 4px;
+            }
+          }
+          .submit {
+            &:hover {
+              background-color: blue;
+            }
+          }
+        }
+      }
+    }
   }
   .wishlist {
+    margin: margin(margin4);
     color: color(textColor2);
     display: flex;
     flex-direction: column;

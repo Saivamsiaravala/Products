@@ -65,15 +65,20 @@ const Products = () => {
                       {item.title}
                     </div>
                     <div className="price-wish-cart">
-                      <div className="price" title="Price">
-                        ${item.price}
+                      <div className="price-div">
+                        <div className="price" title="Price">
+                          ${item.price}
+                        </div>
                       </div>
-                      <div className="wishlist" title="Add to wishlist">
+                      <div className="wishlist-div" title="wishlist">
                         <FaRegHeart className="wishlist-icon" />
                       </div>
-                      <div className="cart" title="Add to Cart">
+                      <div className="cart-div" title="Add to Cart">
                         <FaCartArrowDown className="cart-icon" />
                       </div>
+                      {/* <div className="wishlist" title="Add to wishlist">
+                        <FaRegHeart className="wishlist-icon" />
+                      </div> */}
                     </div>
                   </li>
                 );

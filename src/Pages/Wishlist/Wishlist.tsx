@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { empty_wishlist } from "../../assets";
+import { useAppSelector } from "../../hooks";
 
 const Wishlist = () => {
+  const isLoggedIn: boolean = useAppSelector((store) => {
+    return store.login.isLoggedIn;
+  });
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -10,8 +15,14 @@ const Wishlist = () => {
       transition={{ duration: 1.5 }}
     >
       <div className="wishlist">
-        <div className="wishlist-title">Add Items to your Wishlist</div>
-        <img src={empty_wishlist} className="empty-wishlist" />
+        {!isLoggedIn ? (
+          <div style={{ color: "white" }}>Hey add</div>
+        ) : (
+          <>
+            <div className="wishlist-title">Add Items to your Wishlist</div>
+            <img src={empty_wishlist} className="empty-wishlist" />
+          </>
+        )}
       </div>
     </motion.div>
   );
