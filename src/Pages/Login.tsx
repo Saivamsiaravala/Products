@@ -1,14 +1,18 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import LoginForm from "./Login/LoginForm";
 import SignupForm from "./Login/SignupForm";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { useState } from "react";
+import { logOut } from "./LoginSlice";
+// import { div } from "framer-motion/client";
 // import { NavLink, Route, Routes } from "react-router-dom";
 // import { useContext } from "react";
 // import { LoginContext } from "../App";
 
 const Login = () => {
-  // const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const [isLogin, setIsLogin] = useState<boolean>(true);
+  const isLoggedIn = useAppSelector((store) => store.login.isLoggedIn);
+  const dispatch = useAppDispatch();
 
   return (
     <motion.div
@@ -18,23 +22,38 @@ const Login = () => {
       transition={{ duration: 1.5 }}
     >
       <div className="login-panel">
-        <div className="login-signup">
-          <button
-            onClick={() => setIsLogin(true)}
-            className={isLogin ? "login active" : "login"}
-          >
-            LogIn
-          </button>
-          <button
-            onClick={() => setIsLogin(false)}
-            className={isLogin ? "signup" : "signup active"}
-          >
-            SignUp
-          </button>
-        </div>
-        <div className="main-panel">
-          {isLogin ? <LoginForm /> : <SignupForm />}
-        </div>
+        {isLoggedIn ? (
+          <div>
+            hey you are in
+            <button
+              onClick={() => {
+                dispatch(logOut());
+              }}
+            >
+              logout
+            </button>
+          </div>
+        ) : (
+          <div>
+            <div className="login-signup">
+              <button
+                onClick={() => setIsLogin(true)}
+                className={isLogin ? "login active" : "login"}
+              >
+                LogIn
+              </button>
+              <button
+                onClick={() => setIsLogin(false)}
+                className={isLogin ? "signup" : "signup active"}
+              >
+                SignUp
+              </button>
+            </div>
+            <div className="main-panel">
+              <div>{isLogin ? <LoginForm /> : <SignupForm />}</div>
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

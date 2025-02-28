@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { empty_wishlist } from "../../assets";
 import { useAppSelector } from "../../hooks";
+import { NavLink } from "react-router-dom";
+import { loginImage } from "../../assets";
 
 const Wishlist = () => {
   const isLoggedIn: boolean = useAppSelector((store) => {
@@ -16,7 +18,17 @@ const Wishlist = () => {
     >
       <div className="wishlist">
         {!isLoggedIn ? (
-          <div style={{ color: "white" }}>Hey add</div>
+          <div className="wishlist-login">
+            <div className="wishlist-description">
+              Please Login to add items to wishlist
+            </div>
+            <div className="login">
+              <NavLink to="/login">
+                <div className="login-title">Login</div>
+                <img src={loginImage} className="wishlist-image" />
+              </NavLink>
+            </div>
+          </div>
         ) : (
           <>
             <div className="wishlist-title">Add Items to your Wishlist</div>

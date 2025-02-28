@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { empty_cart } from "../../assets";
+import { empty_cart, loginImage } from "../../assets";
 import { useAppSelector } from "../../hooks";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
@@ -13,7 +14,22 @@ const Cart = () => {
     >
       <div className="cart">
         {!isLoggedIn ? (
-          <div style={{ color: "white" }}>Hey add to cart</div>
+          <div>
+            <div className="cart-login">
+              <div
+                className="cart-login-description"
+                style={{ color: "white" }}
+              >
+                Please login to add items to cart
+              </div>
+              <div className="login">
+                <NavLink to="/login">
+                  <div className="login-title">Login</div>
+                  <img src={loginImage} className="cart-image" />
+                </NavLink>
+              </div>
+            </div>
+          </div>
         ) : (
           <>
             <div className="cart-title">Add items to the cart</div>
