@@ -12,6 +12,7 @@ const SignupForm = () => {
       password === "Vamsi@123"
     ) {
       dispatch(logIn());
+      localStorage.setItem(email, password);
     }
   };
 
@@ -27,6 +28,8 @@ const SignupForm = () => {
               type="text"
               className="name-input"
               onChange={(e) => setEmail(e.target.value)}
+              autoFocus
+              autoComplete="off"
             />
           </div>
         </div>

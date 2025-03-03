@@ -3,8 +3,12 @@ import { empty_wishlist } from "../../assets";
 import { useAppSelector } from "../../hooks";
 import { NavLink } from "react-router-dom";
 import { loginImage } from "../../assets";
+import { ProductsType } from "../../Types";
 
 const Wishlist = () => {
+  const wishListItems: ProductsType = useAppSelector(
+    (store) => store.wishlist.wishListItems
+  );
   const isLoggedIn: boolean = useAppSelector((store) => {
     return store.login.isLoggedIn;
   });
@@ -30,10 +34,33 @@ const Wishlist = () => {
             </div>
           </div>
         ) : (
-          <>
-            <div className="wishlist-title">Add Items to your Wishlist</div>
-            <img src={empty_wishlist} className="empty-wishlist" />
-          </>
+          <div className="wishlist-items">
+            {wishListItems.length ? (
+              <div>
+                {wishListItems.map((item) => {
+                  return (
+                    <li
+                      key={item.id}
+                      style={{ color: "white" }}
+                      className="wishlist-item"
+                    >
+                      <div className="wishlist-item-description">
+                        {item.title}
+                      </div>
+                      <div className="wishlist-image">
+                        <img src={item.thumbnail} />
+                      </div>
+                    </li>
+                  );
+                })}
+              </div>
+            ) : (
+              <div>
+                <div className="wishlist-title">Add Items to your Wishlist</div>
+                <img src={empty_wishlist} className="empty-wishlist" />
+              </div>
+            )}
+          </div>
         )}
       </div>
     </motion.div>

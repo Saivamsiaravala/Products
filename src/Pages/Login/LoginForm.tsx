@@ -14,30 +14,35 @@ const LoginForm = () => {
       password === "Vamsi@123"
     ) {
       dispatch(logIn());
+      localStorage.setItem(email, password);
     }
   };
   return (
     <div className="login-form">
       <form className="form" onSubmit={(event) => submitHandler(event)}>
         <div className="name">
-          <label htmlFor="" className="name-label">
+          <label htmlFor="email" className="name-label">
             Email
           </label>
           <div className="name">
             <input
+              name="email"
               type="text"
               className="name-input"
               onChange={(e) => setEmail(e.target.value)}
+              autoComplete="off"
+              autoFocus
             />
           </div>
         </div>
         <div className="password">
-          <label htmlFor="" className="password-label">
+          <label htmlFor="password" className="password-label">
             Password
           </label>
 
           <div className="password">
             <input
+              name="password"
               type="password"
               className="password-input"
               onChange={(e) => setPassword(e.target.value)}

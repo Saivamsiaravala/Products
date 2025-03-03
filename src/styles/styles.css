@@ -87,6 +87,10 @@ main .home .products .product-items .product-item .price-wish-cart {
   width: 100%;
   font-size: medium;
 }
+main .home .products .product-items .product-item .price-wish-cart button {
+  border: transparent;
+  width: 100%;
+}
 main .home .products .product-items .product-item .price-wish-cart .price-div,
 main .home .products .product-items .product-item .price-wish-cart .wishlist-div,
 main .home .products .product-items .product-item .price-wish-cart .cart-div {
@@ -168,8 +172,9 @@ main nav .links .link.active {
   color: blue;
 }
 main .cart {
+  width: 300px;
   color: white;
-  margin: 10px;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,15 +212,39 @@ main .cart .empty-cart {
   width: 300px;
   border-radius: 10px;
 }
+main .cart .cart-grid {
+  width: 350px;
+}
+main .cart .cart-grid .cart-items {
+  border: 2px solid white;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+main .cart .cart-grid .cart-items .cart-item {
+  width: 100px;
+  height: 200px;
+  margin: 5px;
+  border: 2px solid blue;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+main .cart .cart-grid .cart-items .cart-item .cart-item-description {
+  color: white;
+}
+main .cart .cart-grid .cart-items .cart-item .cart-image img {
+  height: 100px;
+  width: 100px;
+}
 main .login-panel {
   display: flex;
   flex-direction: column;
   margin: 10px auto;
   width: 300px;
   height: 200px;
-  border: 2px solid white;
 }
 main .login-panel .login-signup {
+  border: 2px solid pink;
   display: flex;
   gap: 2px;
 }
@@ -232,8 +261,8 @@ main .login-panel .login-signup .active {
 }
 main .login-panel .main-panel {
   color: white;
-  border: 2px solid blue;
   background-color: black;
+  border: 2px solid pink;
 }
 main .login-panel .main-panel .login-form,
 main .login-panel .main-panel .signup-form {
@@ -316,8 +345,32 @@ main .wishlist .wishlist-login .login .wishlist-image {
   height: 200px;
   width: 200px;
 }
+main .wishlist .wishlist-title {
+  color: white;
+}
 main .wishlist .empty-wishlist {
   height: 300px;
   width: 300px;
   border-radius: 10px;
+}
+main .wishlist .wishlist-items {
+  border: 2px solid white;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+main .wishlist .wishlist-items .wishlist-item {
+  width: 100px;
+  height: 200px;
+  margin: 5px;
+  border: 2px solid blue;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+main .wishlist .wishlist-items .wishlist-item .wishlist-item-description {
+  color: white;
+}
+main .wishlist .wishlist-items .wishlist-item .wishlist-image img {
+  height: 100px;
+  width: 100px;
 }/*# sourceMappingURL=styles.css.map */

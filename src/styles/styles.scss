@@ -167,6 +167,10 @@ main {
             border-bottom-right-radius: 10px;
             width: 100%;
             font-size: medium;
+            button {
+              border: transparent;
+              width: 100%;
+            }
             .price-div,
             .wishlist-div,
             .cart-div {
@@ -207,57 +211,6 @@ main {
                 margin: auto;
               }
             }
-
-            // .price {
-            //   color: black;
-            //   display: flex;
-            //   justify-content: center;
-            //   align-items: center;
-            //   background-color: color(backGroundColor1);
-            //   border-right: 2px solid black;
-            //   border-bottom-left-radius: 10px;
-            //   &:hover {
-            //     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-            //       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-            //       rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-            //       rgba(0, 0, 0, 0.06) 0px 2px 1px,
-            //       rgba(0, 0, 0, 0.09) 0px 4px 2px,
-            //       rgba(0, 0, 0, 0.09) 0px 8px 4px,
-            //       rgba(0, 0, 0, 0.09) 0px 16px 8px,
-            //       rgba(0, 0, 0, 0.09) 0px 32px 16px;
-            //   }
-            // }
-            // .wishlist {
-            //   background-color: color(backGroundColor1);
-            //   height: 30px;
-            //   &:hover {
-            //     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-            //       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-            //       rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-            //       rgba(0, 0, 0, 0.06) 0px 2px 1px,
-            //       rgba(0, 0, 0, 0.09) 0px 4px 2px,
-            //       rgba(0, 0, 0, 0.09) 0px 8px 4px,
-            //       rgba(163, 129, 129, 0.09) 0px 16px 8px,
-            //       rgba(0, 0, 0, 0.09) 0px 32px 16px;
-            //   }
-            // }
-            // .cart {
-            //   display: flex;
-            //   justify-content: center;
-            //   align-items: center;
-            //   background-color: color(backGroundColor1);
-            //   border-bottom-right-radius: 10px;
-            //   &:hover {
-            //     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-            //       rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-            //       rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-            //       rgba(0, 0, 0, 0.06) 0px 2px 1px,
-            //       rgba(0, 0, 0, 0.09) 0px 4px 2px,
-            //       rgba(0, 0, 0, 0.09) 0px 8px 4px,
-            //       rgba(0, 0, 0, 0.09) 0px 16px 8px,
-            //       rgba(0, 0, 0, 0.09) 0px 32px 16px;
-            //   }
-            // }
           }
         }
       }
@@ -319,8 +272,9 @@ main {
     }
   }
   .cart {
+    width: 300px;
     color: color(textColor2);
-    margin: margin(margin4);
+    margin: margin(margin4) auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -363,6 +317,32 @@ main {
       width: 300px;
       border-radius: 10px;
     }
+    .cart-grid {
+      width: 350px;
+      .cart-items {
+        border: 2px solid white;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        .cart-item {
+          width: 100px;
+          height: 200px;
+          margin: margin(margin2);
+          border: 2px solid blue;
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          .cart-item-description {
+            color: color(textColor2);
+          }
+          .cart-image {
+            img {
+              height: 100px;
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
   }
   .login-panel {
     display: flex;
@@ -370,8 +350,8 @@ main {
     margin: margin(margin4) auto;
     width: 300px;
     height: 200px;
-    border: 2px solid white;
     .login-signup {
+      border: 2px solid color(backGroundColor1);
       display: flex;
       gap: 2px;
       .login,
@@ -388,8 +368,9 @@ main {
     }
     .main-panel {
       color: color(textColor2);
-      border: 2px solid blue;
       background-color: color(backGroundColor5);
+      border: 2px solid color(backGroundColor1);
+
       .login-form,
       .signup-form {
         padding: padding(padding3);
@@ -473,11 +454,36 @@ main {
         }
       }
     }
-
+    .wishlist-title {
+      color: color(textColor2);
+    }
     .empty-wishlist {
       height: 300px;
       width: 300px;
       border-radius: 10px;
+    }
+    .wishlist-items {
+      border: 2px solid white;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      .wishlist-item {
+        width: 100px;
+        height: 200px;
+        margin: margin(margin2);
+        border: 2px solid blue;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        .wishlist-item-description {
+          color: color(textColor2);
+        }
+        .wishlist-image {
+          img {
+            height: 100px;
+            width: 100px;
+          }
+        }
+      }
     }
   }
 }

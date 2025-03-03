@@ -4,23 +4,44 @@ import { useEffect, useState } from "react";
 import { type ProductsType, Item } from "../Types";
 import Carousel from "../Components/Carousel";
 import Loading from "../Components/Loading";
-// import { FaHeart } from "react-icons/fa";
 import { FaCartArrowDown } from "react-icons/fa";
-// import { RiLoginBoxFill } from "react-icons/ri";
 import { FaRegHeart } from "react-icons/fa";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { addItem } from "./Cart/CartSlice";
+import { addWishListItem } from "./Wishlist/WishlistSlice";
+import { toast } from "react-toastify";
 
 const url = import.meta.env.VITE_API;
 
 const Products = () => {
+  const dispatch = useAppDispatch();
   const [products, setProducts] = useState<ProductsType | null>(null);
   const [carouselProducts, setCarouselProducts] = useState<ProductsType | null>(
     null
   );
+  const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
+
+  const wishlistHandler = (id: number) => {
+    console.log(id);
+    isLoggedIn
+      ? products &&
+        dispatch(addWishListItem(products[id - 1])) &&
+        toast.success("Product added to wishlist", { autoClose: 2000 })
+      : toast.error("Please Login", { autoClose: 2000 });
+  };
+  const cartHandler = (id: number) => {
+    console.log(id);
+    isLoggedIn
+      ? products &&
+        dispatch(addItem(products[id - 1])) &&
+        toast.success("Product added to cart", { autoClose: 2000 })
+      : toast.error("Please Login", { autoClose: 2000 });
+  };
 
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(url);
-      console.log(data.products);
+      // console.log(data.products);
       setProducts(data.products);
       setCarouselProducts([
         data.products[0],
@@ -65,17 +86,25 @@ const Products = () => {
                       {item.title}
                     </div>
                     <div className="price-wish-cart">
-                      <div className="price-div">
+                      <button className="price-div">
                         <div className="price" title="Price">
                           ${item.price}
                         </div>
-                      </div>
-                      <div className="wishlist-div" title="wishlist">
+                      </button>
+                      <button
+                        className="wishlist-div"
+                        title="wishlist"
+                        onClick={() => wishlistHandler(item.id)}
+                      >
                         <FaRegHeart className="wishlist-icon" />
-                      </div>
-                      <div className="cart-div" title="Add to Cart">
+                      </button>
+                      <button
+                        className="cart-div"
+                        title="Add to Cart"
+                        onClick={() => cartHandler(item.id)}
+                      >
                         <FaCartArrowDown className="cart-icon" />
-                      </div>
+                      </button>
                       {/* <div className="wishlist" title="Add to wishlist">
                         <FaRegHeart className="wishlist-icon" />
                       </div> */}

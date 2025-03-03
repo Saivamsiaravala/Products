@@ -27,6 +27,7 @@ const Login = () => {
             hey you are in
             <button
               onClick={() => {
+                localStorage.clear();
                 dispatch(logOut());
               }}
             >

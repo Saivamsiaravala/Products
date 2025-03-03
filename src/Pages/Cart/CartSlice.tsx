@@ -1,22 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Item, type ProductsType } from "../../Types";
 interface StateType {
-  cartItems: number;
-  isEmpty: boolean;
+  cartItems: ProductsType;
 }
-const initialState: StateType = { cartItems: 0, isEmpty: true };
+const initialState: StateType = { cartItems: [] };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (state) => {
-      state.cartItems += 1;
+    addItem: (state, action: PayloadAction<Item>) => {
+      state.cartItems = [...state.cartItems, action.payload];
     },
     removeItem: (state) => {
-      state.cartItems -= 1;
+      state.cartItems = [];
     },
     clearCart: (state) => {
-      (state.cartItems = 0), (state.isEmpty = true);
+      state.cartItems = [];
     },
   },
 });
