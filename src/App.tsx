@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "./hooks";
 import { logIn } from "./Pages/LoginSlice";
 import { ToastContainer } from "react-toastify";
+import Footer from "./Components/Footer";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -68,7 +69,9 @@ const App = () => {
         <Route path="wishlist" element={<Wishlist />} />
         <Route path="login" element={<Login />} />
       </Routes>
-      <footer style={{ color: "black" }}>Terms and conditions</footer>
+      <footer className="footer">
+        <Footer />
+      </footer>
       <ToastContainer position="top-center" />
     </main>
   );

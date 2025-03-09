@@ -45,7 +45,7 @@ const Cart = () => {
                       style={{ color: "white" }}
                       className="cart-item"
                     >
-                      <div className="cart-item-description">{item.title}</div>
+                      <div className="cart-item-title">{item.title}</div>
                       <div className="cart-image">
                         <img src={item.thumbnail} />
                       </div>

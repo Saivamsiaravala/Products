@@ -172,7 +172,7 @@ main nav .links .link.active {
   color: blue;
 }
 main .cart {
-  width: 300px;
+  width: 100%;
   color: white;
   margin: 10px auto;
   display: flex;
@@ -213,35 +213,83 @@ main .cart .empty-cart {
   border-radius: 10px;
 }
 main .cart .cart-grid {
-  width: 350px;
+  width: 100%;
 }
 main .cart .cart-grid .cart-items {
   border: 2px solid white;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
 }
 main .cart .cart-grid .cart-items .cart-item {
-  width: 100px;
-  height: 200px;
+  height: 150px;
   margin: 5px;
   border: 2px solid blue;
   list-style: none;
   display: flex;
   flex-direction: column;
+  place-items: center;
 }
-main .cart .cart-grid .cart-items .cart-item .cart-item-description {
+main .cart .cart-grid .cart-items .cart-item .cart-item-title {
   color: white;
 }
 main .cart .cart-grid .cart-items .cart-item .cart-image img {
   height: 100px;
   width: 100px;
+  border: 2px solid white;
 }
 main .login-panel {
   display: flex;
   flex-direction: column;
   margin: 10px auto;
   width: 300px;
-  height: 200px;
+  height: 300px;
+}
+main .login-panel .account {
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid white;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+main .login-panel .account .name-div {
+  border: 2px solid black;
+  display: flex;
+  gap: 10px;
+}
+main .login-panel .account .name-div .name-icon {
+  size: 20px;
+  font-size: x-large;
+  width: 20%;
+}
+main .login-panel .account .name-div .name {
+  width: 80%;
+}
+main .login-panel .account .address-div {
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+main .login-panel .account .address-div .address-icon {
+  width: 20%;
+  font-size: x-large;
+}
+main .login-panel .account .address-div .address {
+  width: 80%;
+}
+main .login-panel .account .logout .logout-button {
+  border-radius: 4px;
+}
+main .login-panel .account .logout .logout-button:hover {
+  background-color: blue;
+  color: white;
+  border-radius: 6px;
 }
 main .login-panel .login-signup {
   border: 2px solid pink;
@@ -314,8 +362,9 @@ main .login-panel .main-panel .signup-form .form .submit:hover {
   background-color: blue;
 }
 main .wishlist {
-  margin: 10px;
-  color: black;
+  width: 100%;
+  color: white;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -353,24 +402,81 @@ main .wishlist .empty-wishlist {
   width: 300px;
   border-radius: 10px;
 }
-main .wishlist .wishlist-items {
+main .wishlist .wishlist-grid {
+  width: 100%;
+}
+main .wishlist .wishlist-grid .wishlist-items {
   border: 2px solid white;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
 }
-main .wishlist .wishlist-items .wishlist-item {
-  width: 100px;
-  height: 200px;
-  margin: 5px;
-  border: 2px solid blue;
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item {
+  background-color: white;
+  height: 150px;
+  margin: 5px auto;
+  border: 2px solid white;
   list-style: none;
   display: flex;
   flex-direction: column;
+  place-items: center;
 }
-main .wishlist .wishlist-items .wishlist-item .wishlist-item-description {
-  color: white;
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-item-title {
+  color: black;
 }
-main .wishlist .wishlist-items .wishlist-item .wishlist-image img {
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-image img {
   height: 100px;
   width: 100px;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .move-to-cart .move-to-cart-button {
+  color: white;
+  font-weight: 600;
+  margin: 5px auto;
+  border: transparent;
+  background-color: black;
+  border-radius: 4px;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .move-to-cart .move-to-cart-button:hover {
+  background-color: darkblue;
+  color: white;
+  border-radius: 8px;
+}
+main .footer {
+  background-color: white;
+  width: 100%;
+}
+main .footer .footer-panel {
+  display: flex;
+  width: 100%;
+}
+main .footer .footer-panel .terms-div {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border: 2px solid black;
+}
+main .footer .footer-panel .terms-div .terms {
+  text-align: center;
+}
+main .footer .footer-panel .terms-div .terms-description {
+  font-size: x-small;
+  text-align: center;
+}
+main .footer .footer-panel .footer-icons {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+}
+main .footer .footer-panel .footer-icons .about-icon {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+}
+main .footer .footer-panel .footer-icons .support-icon {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
 }/*# sourceMappingURL=styles.css.map */

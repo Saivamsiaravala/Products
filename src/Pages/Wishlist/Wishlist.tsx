@@ -3,6 +3,8 @@ import { empty_wishlist } from "../../assets";
 import { useAppSelector } from "../../hooks";
 import { NavLink } from "react-router-dom";
 import { loginImage } from "../../assets";
+import { FaCartArrowDown } from "react-icons/fa";
+
 import { ProductsType } from "../../Types";
 
 const Wishlist = () => {
@@ -34,9 +36,9 @@ const Wishlist = () => {
             </div>
           </div>
         ) : (
-          <div className="wishlist-items">
+          <div className="wishlist-grid">
             {wishListItems.length ? (
-              <div>
+              <div className="wishlist-items">
                 {wishListItems.map((item) => {
                   return (
                     <li
@@ -44,21 +46,25 @@ const Wishlist = () => {
                       style={{ color: "white" }}
                       className="wishlist-item"
                     >
-                      <div className="wishlist-item-description">
-                        {item.title}
-                      </div>
+                      <div className="wishlist-item-title">{item.title}</div>
                       <div className="wishlist-image">
                         <img src={item.thumbnail} />
+                      </div>
+                      <div className="move-to-cart">
+                        <button className="move-to-cart-button">
+                          Move to Cart {"  "}
+                          <FaCartArrowDown style={{ color: "gray" }} />
+                        </button>
                       </div>
                     </li>
                   );
                 })}
               </div>
             ) : (
-              <div>
-                <div className="wishlist-title">Add Items to your Wishlist</div>
-                <img src={empty_wishlist} className="empty-wishlist" />
-              </div>
+              <>
+                <div className="wishlist-title">Add items to the cart</div>
+                <img src={empty_wishlist} alt="" className="empty-wishlist" />
+              </>
             )}
           </div>
         )}
