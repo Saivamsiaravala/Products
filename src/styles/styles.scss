@@ -578,12 +578,12 @@ main {
         grid-template-columns: auto auto;
         .wishlist-item {
           background-color: color(backGroundColor2);
-          height: 150px;
+          // height: 150px;
           margin: margin(margin2) auto;
           padding: padding(padding2);
           border: 2px solid white;
           border-radius: 4px;
-          width: 200px;
+          width: 150px;
           list-style: none;
           display: flex;
           flex-direction: column;
@@ -600,15 +600,30 @@ main {
           }
           .move-to-cart {
             .move-to-cart-button {
-              color: color(textColor2);
+              color: color(textColor1);
               font-weight: 600;
               margin: margin(margin2) auto;
-              border: transparent;
-              background-color: color(backGroundColor5);
+              border: 2px solid black;
+              background-color: color(backGroundColor2);
               border-radius: 4px;
               &:hover {
-                background-color: color(backGroundColor7);
+                background-color: color(backGroundColor5);
                 color: white;
+                border-radius: 8px;
+              }
+            }
+          }
+          .item-count-div {
+            display: flex;
+            gap: 10px;
+            .add-item,
+            .remove-item {
+              background-color: white;
+              border-radius: 4px;
+              font-weight: 600;
+              &:hover {
+                color: color(textColor2);
+                background-color: black;
                 border-radius: 8px;
               }
             }

@@ -61,21 +61,21 @@ const Wishlist = () => {
                           Move to Cart {"  "}
                           {/* <FaCartArrowDown style={{ color: "gray" }} /> */}
                         </button>
-                        <span>
-                          <button
-                            className="remove-item"
-                            onClick={() => itemHandler(item.Item.id, "remove")}
-                          >
-                            -
-                          </button>
-                          <span>{item.Count}</span>
-                          <button
-                            className="add-item"
-                            onClick={() => itemHandler(item.Item.id, "add")}
-                          >
-                            +
-                          </button>
-                        </span>
+                      </div>
+                      <div className="item-count-div">
+                        <button
+                          className="remove-item"
+                          onClick={() => itemHandler(item.Item.id, "remove")}
+                        >
+                          -
+                        </button>
+                        <span className="item-count">{item.Count}</span>
+                        <button
+                          className="add-item"
+                          onClick={() => itemHandler(item.Item.id, "add")}
+                        >
+                          +
+                        </button>
                       </div>
                     </li>
                   );

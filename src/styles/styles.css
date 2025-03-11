@@ -445,12 +445,11 @@ main .wishlist .wishlist-grid .wishlist-items {
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item {
   background-color: white;
-  height: 150px;
   margin: 5px auto;
   padding: 5px;
   border: 2px solid white;
   border-radius: 4px;
-  width: 200px;
+  width: 150px;
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -464,16 +463,32 @@ main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-image img
   width: 100px;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .move-to-cart .move-to-cart-button {
-  color: white;
+  color: black;
   font-weight: 600;
   margin: 5px auto;
-  border: transparent;
-  background-color: black;
+  border: 2px solid black;
+  background-color: white;
   border-radius: 4px;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .move-to-cart .move-to-cart-button:hover {
-  background-color: darkblue;
+  background-color: black;
   color: white;
+  border-radius: 8px;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .item-count-div {
+  display: flex;
+  gap: 10px;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .item-count-div .add-item,
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .item-count-div .remove-item {
+  background-color: white;
+  border-radius: 4px;
+  font-weight: 600;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .item-count-div .add-item:hover,
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .item-count-div .remove-item:hover {
+  color: white;
+  background-color: black;
   border-radius: 8px;
 }
 main .footer {

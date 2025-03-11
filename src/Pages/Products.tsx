@@ -32,11 +32,12 @@ const Products = () => {
     // console.log(id);
     isLoggedIn && products
       ? wishListItemsId.includes(id)
-        ? dispatch(addWishListItemCount(id)) && toast.success("heyyy")
+        ? dispatch(addWishListItemCount(id)) &&
+          toast.success("Added to WishList Again")
         : // &&          console.log(id + "old")
           dispatch(
             addWishListItem({ Item: products[id - 1], Count: 1, id: id })
-          ) && toast.success("hey")
+          ) && toast.success("Added to Wishlist")
       : // &&console.log(id + " new")
         toast.error("please Login");
   };
