@@ -245,7 +245,6 @@ main .cart .cart-grid .cart-items {
 }
 main .cart .cart-grid .cart-items .cart-item {
   background-color: white;
-  height: 150px;
   margin: 5px auto;
   padding: 5px;
   border-radius: 4px;
@@ -254,6 +253,7 @@ main .cart .cart-grid .cart-items .cart-item {
   display: flex;
   flex-direction: column;
   place-items: center;
+  width: 150px;
 }
 main .cart .cart-grid .cart-items .cart-item .cart-item-title {
   color: black;

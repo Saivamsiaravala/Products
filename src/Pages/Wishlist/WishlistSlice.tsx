@@ -3,9 +3,14 @@ import { type wishListDupeItem, wishListItem } from "../../Types";
 interface StateType {
   wishListItems: wishListItem[];
   wishListItemsId: number[];
+  totalWishListItems: number;
 }
 
-const initialState: StateType = { wishListItems: [], wishListItemsId: [] };
+const initialState: StateType = {
+  wishListItems: [],
+  wishListItemsId: [],
+  totalWishListItems: 0,
+};
 
 const WishListSlice = createSlice({
   name: "wishlist",
@@ -17,6 +22,8 @@ const WishListSlice = createSlice({
         { Item: action.payload.Item, Count: 1 },
       ];
       state.wishListItemsId = [...state.wishListItemsId, action.payload.id];
+      state.totalWishListItems += 1;
+      // console.log(state.totalWishListItems);
     },
 
     increaseWishListItemCount: (state, action: PayloadAction<number>) => {
@@ -24,6 +31,8 @@ const WishListSlice = createSlice({
         return item.Item.id === action.payload;
       });
       state.wishListItems[num].Count += 1;
+      state.totalWishListItems += 1;
+
       // console.log(
       //   state.wishListItems.filter((item) => item.Item.id === action.payload)
       // );
@@ -41,12 +50,14 @@ const WishListSlice = createSlice({
         (state.wishListItemsId = state.wishListItemsId.filter(
           (item) => item !== action.payload
         )));
+      state.totalWishListItems -= 1;
     },
     addWishListItemCount: (state, action) => {
       const num = state.wishListItems.findIndex((item) => {
         return item.Item.id === action.payload;
       });
       state.wishListItems[num].Count += 1;
+      state.totalWishListItems += 1;
     },
 
     clearWishListItem: (state) => {

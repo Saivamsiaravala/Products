@@ -1,14 +1,20 @@
 import { motion } from "framer-motion";
 import { empty_cart, loginImage } from "../../assets";
-import { useAppSelector } from "../../hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import { NavLink } from "react-router-dom";
-import { ProductsType } from "../../Types";
+import { wishListItem } from "../../Types";
+import { decreaseCartItemCount, increaseCartItemCount } from "./CartSlice";
 
 const Cart = () => {
   const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
-  const cartItems: ProductsType = useAppSelector(
+  const dispatch = useAppDispatch();
+  const cartItems: wishListItem[] = useAppSelector(
     (store) => store.cart.cartItems
   );
+  const cartItemHandler = (id: number, method: string) => {
+    if (method === "remove") dispatch(decreaseCartItemCount(id));
+    else dispatch(increaseCartItemCount(id));
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -41,13 +47,31 @@ const Cart = () => {
                 {cartItems.map((item) => {
                   return (
                     <li
-                      key={item.id}
+                      key={item.Item.id}
                       style={{ color: "white" }}
                       className="cart-item"
                     >
-                      <div className="cart-item-title">{item.title}</div>
+                      <div className="cart-item-title">{item.Item.title}</div>
                       <div className="cart-image">
-                        <img src={item.thumbnail} />
+                        <img src={item.Item.thumbnail} />
+                      </div>
+                      <div className="item-price-div">${item.Item.price}</div>
+                      <div className="item-count-div">
+                        <button
+                          className="remove-item"
+                          onClick={() =>
+                            cartItemHandler(item.Item.id, "remove")
+                          }
+                        >
+                          -
+                        </button>
+                        <span className="item-count">{item.Count}</span>
+                        <button
+                          className="add-item"
+                          onClick={() => cartItemHandler(item.Item.id, "add")}
+                        >
+                          +
+                        </button>
                       </div>
                     </li>
                   );

@@ -4,13 +4,15 @@ import { FaCartArrowDown, FaHeart } from "react-icons/fa";
 import { RiLoginBoxFill } from "react-icons/ri";
 import { FaHome } from "react-icons/fa";
 import { useEffect } from "react";
-import { useAppDispatch } from "./hooks";
+import { useAppDispatch, useAppSelector } from "./hooks";
 import { logIn } from "./Pages/LoginSlice";
 import { ToastContainer } from "react-toastify";
 // import Footer from "./Components/Footer";
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const { totalWishListItems } = useAppSelector((store) => store.wishlist);
+  const { totalCartItems } = useAppSelector((store) => store.cart);
   useEffect(() => {
     const keyWord =
       localStorage.getItem("Vamsi@gmail.com") ||
@@ -42,6 +44,10 @@ const App = () => {
               className={(isActive) => isActive && "isActive"}
             >
               <FaHeart />
+              <sub style={{ fontSize: "small" }}>{totalWishListItems}</sub>
+              <sub>
+                <div></div>
+              </sub>
             </NavLink>
           </div>
           <div className="link">
@@ -51,6 +57,7 @@ const App = () => {
               className={(isActive) => isActive && "isActive"}
             >
               <FaCartArrowDown />
+              <sub style={{ fontSize: "small" }}>{totalCartItems}</sub>
             </NavLink>
           </div>
           <div className="link">

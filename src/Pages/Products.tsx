@@ -7,7 +7,7 @@ import Loading from "../Components/Loading";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { addItem } from "./Cart/CartSlice";
+import { addItem, addSameItem } from "./Cart/CartSlice";
 import {
   addWishListItem,
   addWishListItemCount,
@@ -18,6 +18,7 @@ const url = import.meta.env.VITE_API;
 
 const Products = () => {
   const dispatch = useAppDispatch();
+  const { cartItemsId } = useAppSelector((store) => store.cart);
   const { wishListItemsId } = useAppSelector((store) => store.wishlist);
   const [products, setProducts] = useState<ProductsType | null>(null);
   const [carouselProducts, setCarouselProducts] = useState<ProductsType | null>(
@@ -42,12 +43,13 @@ const Products = () => {
         toast.error("please Login");
   };
   const cartHandler = (id: number) => {
-    console.log(id);
-    isLoggedIn
-      ? products &&
-        dispatch(addItem(products[id - 1])) &&
-        toast.success("Product added to cart", { autoClose: 2000 })
-      : toast.error("Please Login", { autoClose: 2000 });
+    // console.log(id);
+    isLoggedIn && products
+      ? cartItemsId.includes(id)
+        ? dispatch(addSameItem(id)) && toast.success("Added to Cart again")
+        : dispatch(addItem({ Item: products[id - 1], Count: 1, id: id })) &&
+          toast.success("Product added to cart")
+      : toast.error("Please Login");
   };
 
   useEffect(() => {

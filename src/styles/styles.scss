@@ -351,7 +351,7 @@ main {
 
         .cart-item {
           background-color: color(backGroundColor2);
-          height: 150px;
+          // height: 150px;
           margin: margin(margin2) auto;
           // border: 2px solid blue;
           padding: padding(padding2);
@@ -361,6 +361,7 @@ main {
           display: flex;
           flex-direction: column;
           place-items: center;
+          width: 150px;
 
           .cart-item-title {
             color: color(textColor1);
