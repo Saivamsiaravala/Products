@@ -54,10 +54,10 @@ const Cart = () => {
                 })}
               </div>
             ) : (
-              <>
+              <div className="cart-empty">
                 <div className="cart-title">Add items to the cart</div>
                 <img src={empty_cart} alt="" className="empty-cart" />
-              </>
+              </div>
             )}
           </div>
         )}

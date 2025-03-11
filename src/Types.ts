@@ -1,5 +1,5 @@
 export type ProductsType = Item[];
-
+export type Count = { count: number };
 export interface Item {
   id: number;
   title: string;
@@ -29,6 +29,24 @@ export interface Dimensions {
   width: number;
   height: number;
   depth: number;
+}
+
+export interface wishListItem {
+  Item: Item;
+  Count: number;
+}
+export interface wishListItemAndCount {
+  Item: Item & { Count: number };
+}
+export interface wishListDupeItem {
+  Item: Item;
+  Count: number;
+  id: number;
+}
+
+export interface wishListDispatchItem {
+  Item: Item;
+  id: number;
 }
 
 export interface Meta {

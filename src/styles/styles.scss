@@ -217,26 +217,33 @@ main {
       }
     }
   }
-  //   width: 100%;
-  //   height: 100%;
-  padding: 0;
-  margin: 0;
   nav {
     padding: padding(padding2);
     display: flex;
     flex-direction: column;
     background-color: color(backGroundColor2);
-    height: 100px;
+    height: 110px;
+    align-items: center;
+
     header {
       height: 60%;
       font-weight: 600;
       width: 100%;
       background-color: color(blackColor);
+      display: flex;
+      align-items: center;
+      border: 2px solid yellow;
+      text-align: center;
       h1 {
+        margin: 0 auto;
         color: color(textColor2);
         font-size: x-large;
         position: sticky;
         padding: padding(padding1);
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        // border: 2px solid white;
       }
     }
     .links {
@@ -253,13 +260,16 @@ main {
         padding: padding(padding2);
         color: color(textColor1);
         &:hover {
-          // background-color: color(backGroundColor2);
-
           color: color(textColor2);
-          &:hover {
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-              hwb(0 0% 100% / 0.3) 0px 18px 36px -18px inset;
-            border-radius: 60%;
+
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+            hwb(0 0% 100% / 0.3) 0px 18px 36px -18px inset;
+          border-radius: 10%;
+          background-color: gray;
+        }
+        .home-icon {
+          &hover {
+            font-size: 100px;
           }
         }
       }
@@ -280,6 +290,7 @@ main {
     flex-direction: column;
     align-items: center;
     .cart-login {
+      width: 300px;
       .cart-login-description {
         text-align: center;
         color: white;
@@ -320,28 +331,61 @@ main {
     }
     .cart-grid {
       width: 100%;
+      .cart-empty {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .cart-title {
+          color: color(textColor2);
+        }
+        .empty-cart {
+          height: 300px;
+          width: 300px;
+          border-radius: 10px;
+        }
+      }
       .cart-items {
-        border: 2px solid white;
         display: grid;
         grid-template-columns: auto auto;
+
         .cart-item {
+          background-color: color(backGroundColor2);
           height: 150px;
-          margin: margin(margin2);
-          border: 2px solid blue;
+          margin: margin(margin2) auto;
+          // border: 2px solid blue;
+          padding: padding(padding2);
+          border-radius: 4px;
+          border: 2px solid white;
           list-style: none;
           display: flex;
           flex-direction: column;
           place-items: center;
+
           .cart-item-title {
-            color: color(textColor2);
+            color: color(textColor1);
           }
           .cart-image {
             img {
               height: 100px;
               width: 100px;
-              border: 2px solid white;
             }
           }
+          // .move-to-cart {
+          //   .move-to-cart-button {
+          //     color: color(textColor2);
+          //     font-weight: 600;
+          //     margin: margin(margin2) auto;
+          //     border: transparent;
+          //     background-color: color(backGroundColor5);
+          //     border-radius: 4px;
+          //     &:hover {
+          //       background-color: color(backGroundColor7);
+          //       color: white;
+          //       border-radius: 8px;
+          //     }
+          //   }
+          // }
         }
       }
     }
@@ -479,6 +523,8 @@ main {
     flex-direction: column;
     align-items: center;
     .wishlist-login {
+      width: 300px;
+
       .wishlist-description {
         text-align: center;
         color: white;
@@ -509,27 +555,35 @@ main {
         }
       }
     }
-    .wishlist-title {
-      color: color(textColor2);
+    .wishlist-empty {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .wishlist-title {
+        color: color(textColor2);
+      }
+      .empty-wishlist {
+        height: 300px;
+        width: 300px;
+        border-radius: 10px;
+      }
     }
-    .empty-wishlist {
-      height: 300px;
-      width: 300px;
-      border-radius: 10px;
-    }
+
     .wishlist-grid {
       width: 100%;
       .wishlist-items {
-        border: 2px solid white;
+        // border: 2px solid white;
         display: grid;
         grid-template-columns: auto auto;
         .wishlist-item {
           background-color: color(backGroundColor2);
           height: 150px;
           margin: margin(margin2) auto;
-          // border: 2px solid blue;
+          padding: padding(padding2);
           border: 2px solid white;
-
+          border-radius: 4px;
+          width: 200px;
           list-style: none;
           display: flex;
           flex-direction: column;

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "./hooks";
 import { logIn } from "./Pages/LoginSlice";
 import { ToastContainer } from "react-toastify";
-import Footer from "./Components/Footer";
+// import Footer from "./Components/Footer";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -29,8 +29,9 @@ const App = () => {
         </header>
         <div className="links">
           <div className="link">
-            <NavLink to="" className={(isActive) => isActive && "isActive"}>
-              <FaHome />
+            {/* className={(isActive) => isActive && "isActive"} */}
+            <NavLink to="">
+              <FaHome className="home-icon" />
             </NavLink>
           </div>
 
@@ -69,10 +70,10 @@ const App = () => {
         <Route path="wishlist" element={<Wishlist />} />
         <Route path="login" element={<Login />} />
       </Routes>
-      <footer className="footer">
+      {/* <footer className="footer">
         <Footer />
-      </footer>
-      <ToastContainer position="top-center" />
+      </footer> */}
+      <ToastContainer position="top-center" autoClose={1000} />
     </main>
   );
 };

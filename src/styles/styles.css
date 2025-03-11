@@ -7,10 +7,6 @@ body {
   background-color: black;
 }
 
-main {
-  padding: 0;
-  margin: 0;
-}
 main .home {
   background-color: black;
 }
@@ -128,19 +124,28 @@ main nav {
   display: flex;
   flex-direction: column;
   background-color: white;
-  height: 100px;
+  height: 110px;
+  align-items: center;
 }
 main nav header {
   height: 60%;
   font-weight: 600;
   width: 100%;
   background-color: black;
+  display: flex;
+  align-items: center;
+  border: 2px solid yellow;
+  text-align: center;
 }
 main nav header h1 {
+  margin: 0 auto;
   color: white;
   font-size: x-large;
   position: sticky;
   padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-self: center;
 }
 main nav .links {
   position: absolute;
@@ -159,10 +164,12 @@ main nav .links .link {
 }
 main nav .links .link:hover {
   color: white;
-}
-main nav .links .link:hover:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, hwb(0 0% 100%/0.3) 0px 18px 36px -18px inset;
-  border-radius: 60%;
+  border-radius: 10%;
+  background-color: gray;
+}
+main nav .links .link .home-iconhover {
+  font-size: 100px;
 }
 main nav .links .linkisActive {
   color: blue;
@@ -178,6 +185,9 @@ main .cart {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+main .cart .cart-login {
+  width: 300px;
 }
 main .cart .cart-login .cart-login-description {
   text-align: center;
@@ -215,27 +225,42 @@ main .cart .empty-cart {
 main .cart .cart-grid {
   width: 100%;
 }
+main .cart .cart-grid .cart-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cart .cart-grid .cart-empty .cart-title {
+  color: white;
+}
+main .cart .cart-grid .cart-empty .empty-cart {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+}
 main .cart .cart-grid .cart-items {
-  border: 2px solid white;
   display: grid;
   grid-template-columns: auto auto;
 }
 main .cart .cart-grid .cart-items .cart-item {
+  background-color: white;
   height: 150px;
-  margin: 5px;
-  border: 2px solid blue;
+  margin: 5px auto;
+  padding: 5px;
+  border-radius: 4px;
+  border: 2px solid white;
   list-style: none;
   display: flex;
   flex-direction: column;
   place-items: center;
 }
 main .cart .cart-grid .cart-items .cart-item .cart-item-title {
-  color: white;
+  color: black;
 }
 main .cart .cart-grid .cart-items .cart-item .cart-image img {
   height: 100px;
   width: 100px;
-  border: 2px solid white;
 }
 main .login-panel {
   display: flex;
@@ -369,6 +394,9 @@ main .wishlist {
   flex-direction: column;
   align-items: center;
 }
+main .wishlist .wishlist-login {
+  width: 300px;
+}
 main .wishlist .wishlist-login .wishlist-description {
   text-align: center;
   color: white;
@@ -394,10 +422,16 @@ main .wishlist .wishlist-login .login .wishlist-image {
   height: 200px;
   width: 200px;
 }
-main .wishlist .wishlist-title {
+main .wishlist .wishlist-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .wishlist .wishlist-empty .wishlist-title {
   color: white;
 }
-main .wishlist .empty-wishlist {
+main .wishlist .wishlist-empty .empty-wishlist {
   height: 300px;
   width: 300px;
   border-radius: 10px;
@@ -406,7 +440,6 @@ main .wishlist .wishlist-grid {
   width: 100%;
 }
 main .wishlist .wishlist-grid .wishlist-items {
-  border: 2px solid white;
   display: grid;
   grid-template-columns: auto auto;
 }
@@ -414,7 +447,10 @@ main .wishlist .wishlist-grid .wishlist-items .wishlist-item {
   background-color: white;
   height: 150px;
   margin: 5px auto;
+  padding: 5px;
   border: 2px solid white;
+  border-radius: 4px;
+  width: 200px;
   list-style: none;
   display: flex;
   flex-direction: column;

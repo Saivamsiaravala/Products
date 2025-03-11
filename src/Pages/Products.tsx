@@ -8,26 +8,37 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { addItem } from "./Cart/CartSlice";
-import { addWishListItem } from "./Wishlist/WishlistSlice";
+import {
+  addWishListItem,
+  addWishListItemCount,
+} from "./Wishlist/WishlistSlice";
 import { toast } from "react-toastify";
 
 const url = import.meta.env.VITE_API;
 
 const Products = () => {
   const dispatch = useAppDispatch();
+  const { wishListItemsId } = useAppSelector((store) => store.wishlist);
   const [products, setProducts] = useState<ProductsType | null>(null);
   const [carouselProducts, setCarouselProducts] = useState<ProductsType | null>(
     null
   );
   const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
+  // useEffect(() => {
+  //   wishListItemsId && console.log(wishListItemsId);
+  // }, [wishListItemsId]);
 
   const wishlistHandler = (id: number) => {
-    console.log(id);
-    isLoggedIn
-      ? products &&
-        dispatch(addWishListItem(products[id - 1])) &&
-        toast.success("Product added to wishlist", { autoClose: 2000 })
-      : toast.error("Please Login", { autoClose: 2000 });
+    // console.log(id);
+    isLoggedIn && products
+      ? wishListItemsId.includes(id)
+        ? dispatch(addWishListItemCount(id)) && toast.success("heyyy")
+        : // &&          console.log(id + "old")
+          dispatch(
+            addWishListItem({ Item: products[id - 1], Count: 1, id: id })
+          ) && toast.success("hey")
+      : // &&console.log(id + " new")
+        toast.error("please Login");
   };
   const cartHandler = (id: number) => {
     console.log(id);
