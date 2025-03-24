@@ -62,6 +62,16 @@ main .home .products .product-items {
   gap: 2vh;
   margin: 1vw;
 }
+@media (min-width: 600px) {
+  main .home .products .product-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  main .home .products .product-items {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
 main .home .products .product-items .product-item {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 2vw 0;
@@ -75,6 +85,12 @@ main .home .products .product-items .product-item:hover {
 main .home .products .product-items .product-item .product-image-title img {
   height: 20vh;
   width: 20vh;
+}
+@media (min-width: 600px) {
+  main .home .products .product-items .product-item .product-image-title img {
+    height: 30vh;
+    width: 30vh;
+  }
 }
 main .home .products .product-items .product-item .product-image-title .product-title {
   font-size: smaller;
@@ -144,12 +160,15 @@ main .wishlist .wishlist-grid .wishlist-empty .add-products {
 main .wishlist .wishlist-grid .wishlist-empty .add-products:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-main .wishlist .wishlist-grid .wishlist-empty .add-products .products-title {
+main .wishlist .wishlist-grid .wishlist-empty .add-products .link {
+  width: 100%;
+}
+main .wishlist .wishlist-grid .wishlist-empty .add-products .link .products-title {
   text-decoration: none !important;
   text-transform: uppercase;
   margin-bottom: 2vw;
 }
-main .wishlist .wishlist-grid .wishlist-empty img {
+main .wishlist .wishlist-grid .wishlist-empty .add-products .link img {
   height: 40vh;
   width: 50vw;
 }
@@ -163,10 +182,15 @@ main .wishlist .wishlist-grid .wishlist-items {
   margin: 1vw;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 4%;
+  padding: 2vw;
   border: 2px solid lightpink;
+  text-align: center;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-item-title {
-  text-align: center;
+  font-size: small;
+  font-weight: 600;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-image img {
   height: 20vh;
@@ -208,6 +232,112 @@ main .cart .cart-login .login img {
 main .cart .cart-login .login:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+main .cart .cart-grid .cart-empty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 3vw 0;
+}
+main .cart .cart-grid .cart-empty .cart-title {
+  margin: 3vw 0;
+}
+main .cart .cart-grid .cart-empty .add-products {
+  padding: 2vw;
+  border: 1px solid lightpink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .cart .cart-grid .cart-empty .add-products:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+main .cart .cart-grid .cart-empty .add-products .link {
+  width: 100%;
+}
+main .cart .cart-grid .cart-empty .add-products .link .products-title {
+  text-decoration: none !important;
+  text-transform: uppercase;
+  margin-bottom: 2vw;
+}
+main .cart .cart-grid .cart-empty .add-products .link img {
+  height: 40vh;
+  width: 50vw;
+}
+main .cart .cart-grid .cart-items {
+  padding: 2vw 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  place-items: center;
+  gap: 2vh;
+  margin: 1vw;
+}
+main .cart .cart-grid .cart-items .cart-item {
+  border-radius: 4%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid lightpink;
+  padding: 2vw;
+  text-align: center;
+}
+main .cart .cart-grid .cart-items .cart-item .cart-item-title {
+  font-size: small;
+  font-weight: 600;
+}
+main .cart .cart-grid .cart-items .cart-item .cart-image img {
+  height: 20vh;
+  width: 20vh;
+}
+main .cart .cart-grid .cart-items .cart-item .cart-price {
+  font-size: medium;
+}
+main .cart .cart-grid .cart-items .cart-item .count-div {
+  width: 100%;
+  margin: 2vw 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+main .cart .cart-grid .cart-items .cart-item .count-div .item-count {
+  font-size: larger;
+}
+main .cart .cart-grid .cart-items .cart-item .count-div button {
+  border: none;
+  background-color: transparent;
+  font-weight: lighter;
+}
+main .cart .cart-grid .cart-items .cart-item .count-div button .icon {
+  font-size: small;
+}
 main .login-panel {
+  background-color: white;
+  width: 50vw;
+  margin: 2vw auto;
+}
+main .login-panel .login-signup {
+  padding: 2vw;
+  display: flex;
+  border-radius: 4%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+main .login-panel .login-signup button {
+  width: 50vw;
+  font-weight: bold;
+  border-radius: 4%;
+}
+main .login-panel .login-signup .active {
   background-color: wheat;
+}
+main .login-panel .main-panel {
+  border-top: 2px solid lightpink;
+  padding: 2vw;
+  text-align: center;
+}
+main .login-panel .main-panel .login-form .form .name input :focus {
+  border: none;
+  border-bottom: blue;
+}
+main .login-panel .main-panel .login-form .form .password input:focus {
+  border: none;
+  border-bottom: blue;
 }/*# sourceMappingURL=styles.css.map */

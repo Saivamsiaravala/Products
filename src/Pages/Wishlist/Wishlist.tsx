@@ -92,10 +92,14 @@ const Wishlist = () => {
                 <div className="wishlist-title">Empty WishList</div>
 
                 <div className="add-products">
-                  <NavLink to="/" className="products-title">
-                    Go to Products
+                  <NavLink to="/" className="link">
+                    <div className="products-title">Go to Products</div>
+                    <img
+                      src={empty_wishlist}
+                      alt=""
+                      className="empty-wishlist"
+                    />
                   </NavLink>
-                  <img src={empty_wishlist} alt="" className="empty-wishlist" />
                 </div>
               </div>
             )}

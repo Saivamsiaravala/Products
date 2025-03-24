@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { NavLink } from "react-router-dom";
 import { wishListItem } from "../../Types";
 import { decreaseCartItemCount, increaseCartItemCount } from "./CartSlice";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 
 const Cart = () => {
   const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
@@ -24,17 +25,15 @@ const Cart = () => {
     >
       <div className="cart">
         {!isLoggedIn ? (
-          <div>
-            <div className="cart-login">
-              <div className="cart-description">
-                Please login to add items to cart
-              </div>
-              <div className="login">
-                <NavLink to="/login">
-                  <div className="login-title">Login</div>
-                  <img src={loginImage} className="cart-image" />
-                </NavLink>
-              </div>
+          <div className="cart-login">
+            <div className="cart-description">
+              Please login to add items to cart
+            </div>
+            <div className="login">
+              <NavLink to="/login">
+                <div className="login-title">Login</div>
+                <img src={loginImage} className="cart-image" />
+              </NavLink>
             </div>
           </div>
         ) : (
@@ -42,33 +41,36 @@ const Cart = () => {
             {cartItems.length ? (
               <div className="cart-items">
                 {cartItems.map((item) => {
+                  const { id, title, thumbnail, price } = item.Item;
+                  const { Count } = item;
                   return (
-                    <li
-                      key={item.Item.id}
-                      style={{ color: "white" }}
-                      className="cart-item"
-                    >
-                      <div className="cart-item-title">{item.Item.title}</div>
-                      <div className="cart-image">
-                        <img src={item.Item.thumbnail} />
+                    <li key={id} className="cart-item">
+                      <div className="cart-item-title" title={title}>
+                        {title.slice(0, 10)}...
                       </div>
-                      <div className="item-price-div">${item.Item.price}</div>
-                      <div className="item-count-div">
-                        <button
+                      <div className="cart-image">
+                        <img src={thumbnail} />
+                      </div>
+                      <div className="cart-price">${price}</div>
+                      <div className="count-div">
+                        <motion.button
                           className="remove-item"
-                          onClick={() =>
-                            cartItemHandler(item.Item.id, "remove")
-                          }
+                          whileTap={{ scale: 0.85 }}
+                          onClick={() => cartItemHandler(id, "remove")}
                         >
-                          -
-                        </button>
-                        <span className="item-count">{item.Count}</span>
-                        <button
+                          <FaMinus
+                            className="icon"
+                            style={{ fontSize: "small" }}
+                          />
+                        </motion.button>
+                        <span className="item-count">{Count}</span>
+                        <motion.button
+                          whileTap={{ scale: 0.85 }}
                           className="add-item"
-                          onClick={() => cartItemHandler(item.Item.id, "add")}
+                          onClick={() => cartItemHandler(id, "add")}
                         >
-                          +
-                        </button>
+                          <FaPlus className="icon" />
+                        </motion.button>
                       </div>
                     </li>
                   );
@@ -76,8 +78,22 @@ const Cart = () => {
               </div>
             ) : (
               <div className="cart-empty">
-                <div className="cart-title">Add items to the cart</div>
-                <img src={empty_cart} alt="" className="empty-cart" />
+                <div className="cart-title"> Empty Cart</div>
+                <div className="add-products">
+                  <NavLink to="/" className="link">
+                    <div
+                      className="products-title"
+                      style={{ textDecoration: "none" }}
+                    >
+                      Go to Products
+                    </div>
+                    <img
+                      src={empty_cart}
+                      alt="empty wishlist"
+                      className="empty-wishlist"
+                    />
+                  </NavLink>
+                </div>
               </div>
             )}
           </div>

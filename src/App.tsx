@@ -32,7 +32,7 @@ const App = () => {
         </header>
         <div className="links">
           <motion.div
-            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.85 }}
             transition={{ duration: 0.4 }}
             className="link"
@@ -42,7 +42,7 @@ const App = () => {
             </NavLink>
           </motion.div>
           <motion.div
-            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.85 }}
             transition={{ duration: 0.4 }}
             className="link"
@@ -59,7 +59,7 @@ const App = () => {
             </NavLink>
           </motion.div>
           <motion.div
-            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.85 }}
             transition={{ duration: 0.4 }}
             className="link"
@@ -83,7 +83,7 @@ const App = () => {
             </NavLink>
           </motion.div>
           <motion.div
-            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.85 }}
             transition={{ duration: 0.4 }}
             className="link"
