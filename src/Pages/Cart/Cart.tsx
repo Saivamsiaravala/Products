@@ -26,10 +26,7 @@ const Cart = () => {
         {!isLoggedIn ? (
           <div>
             <div className="cart-login">
-              <div
-                className="cart-login-description"
-                style={{ color: "white" }}
-              >
+              <div className="cart-description">
                 Please login to add items to cart
               </div>
               <div className="login">

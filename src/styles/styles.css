@@ -1,3 +1,7 @@
+body {
+  background-color: pink;
+}
+
 main {
   background-color: pink;
 }
@@ -36,9 +40,169 @@ main .home .carousel .carousel-div {
   padding: 2vw;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
+  border-bottom: 4px solid white;
 }
 main .home .carousel .carousel-div img {
   margin: 2vw 0;
-  border: 2px solid red;
+  border-radius: 10%;
   width: 30vh;
+  background-color: white;
+}
+main .home .products .products-title {
+  margin-top: 2vw;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+main .home .products .product-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  place-items: center;
+  gap: 2vh;
+  margin: 1vw;
+}
+main .home .products .product-items .product-item {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 2vw 0;
+  text-align: center;
+  border: 2px solid lightpink;
+  border-radius: 4%;
+}
+main .home .products .product-items .product-item:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+main .home .products .product-items .product-item .product-image-title img {
+  height: 30vh;
+}
+main .home .products .product-items .product-item .product-image-title .product-title {
+  font-size: smaller;
+  font-weight: bold;
+}
+main .home .products .product-items .product-item .price {
+  font-size: smaller;
+  font-weight: bold;
+}
+main .home .products .product-items .product-item .wish-cart {
+  margin-top: 2vw;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .home .products .product-items .product-item .wish-cart .wishlist-div,
+main .home .products .product-items .product-item .wish-cart .cart-div {
+  width: 50%;
+  background-color: transparent;
+  border: none;
+}
+main .home .products .product-items .product-item .wish-cart .wishlist-div .icon,
+main .home .products .product-items .product-item .wish-cart .cart-div .icon {
+  font-size: medium;
+}
+main .wishlist .wishlist-login {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+main .wishlist .wishlist-login .wishlist-description {
+  margin: 3vw 0;
+}
+main .wishlist .wishlist-login .login {
+  padding: 2vw;
+  border: 1px solid lightpink;
+}
+main .wishlist .wishlist-login .login .login-title {
+  text-decoration: none !important;
+  text-transform: uppercase;
+  margin-bottom: 2vw;
+}
+main .wishlist .wishlist-login .login img {
+  height: 40vh;
+}
+main .wishlist .wishlist-login .login:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+main .wishlist .wishlist-grid .wishlist-empty {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 3vw 0;
+}
+main .wishlist .wishlist-grid .wishlist-empty .wishlist-title {
+  margin: 3vw 0;
+}
+main .wishlist .wishlist-grid .wishlist-empty .add-products {
+  padding: 2vw;
+  border: 1px solid lightpink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .wishlist .wishlist-grid .wishlist-empty .add-products:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+main .wishlist .wishlist-grid .wishlist-empty .add-products .products-title {
+  text-decoration: none !important;
+  text-transform: uppercase;
+  margin-bottom: 2vw;
+}
+main .wishlist .wishlist-grid .wishlist-empty img {
+  height: 40vh;
+  width: 50vw;
+}
+main .wishlist .wishlist-grid .wishlist-items {
+  padding: 2vw 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  place-items: center;
+  gap: 2vh;
+  margin: 1vw;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item {
+  border: 2px solid lightpink;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-item-title {
+  text-align: center;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-image img {
+  height: 30vh;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .move-to-cart button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid black;
+}
+main .wishlist .wishlist-grid .wishlist-items .wishlist-item .remove button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+main .cart .cart-login {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+main .cart .cart-login .cart-description {
+  margin: 3vw 0;
+}
+main .cart .cart-login .login {
+  padding: 2vw;
+  border: 1px solid lightpink;
+}
+main .cart .cart-login .login .login-title {
+  text-decoration-style: none !important;
+  text-transform: uppercase;
+  margin-bottom: 2vw;
+}
+main .cart .cart-login .login img {
+  height: 40vh;
+}
+main .cart .cart-login .login:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }/*# sourceMappingURL=styles.css.map */

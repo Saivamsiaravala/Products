@@ -13,6 +13,7 @@ import {
   // addWishListItemCount,
 } from "./Wishlist/WishlistSlice";
 import { toast } from "react-toastify";
+// import { motion } from "framer-motion";
 
 const url = import.meta.env.VITE_API;
 
@@ -90,8 +91,7 @@ const Products = () => {
             {products &&
               products.map((item: Item, index: number) => {
                 return (
-                  <li key={index} className="product-item">
-                    {/* {item.id} */}
+                  <div key={index} className="product-item">
                     <div
                       className="product-image-title"
                       title="Click for product details"
@@ -103,31 +103,30 @@ const Products = () => {
                         {item.title.slice(0, 10)}...
                       </div>
                     </div>
-                    <div className="price-div">
-                      <button className="price" title="Price">
-                        ${item.price}
-                      </button>
-                    </div>
+                    <div className="price">${item.price}</div>
                     <div className="wish-cart">
-                      <button
+                      <motion.button
+                        whileTap={{ scale: 0.9 }}
                         className="wishlist-div"
                         title="wishlist"
                         onClick={() => wishlistHandler(item.id)}
                       >
-                        <FaRegHeart className="wishlist-icon" />
-                      </button>
-                      <button
+                        <FaRegHeart className="icon" />
+                      </motion.button>
+                      <motion.button
+                        whileTap={{ scale: 0.9 }}
                         className="cart-div"
                         title="Add to Cart"
                         onClick={() => cartHandler(item.id)}
                       >
-                        <FaCartArrowDown className="cart-icon" />
-                      </button>
+                        <FaCartArrowDown className="icon" />
+                      </motion.button>
+
                       {/* <div className="wishlist" title="Add to wishlist">
                         <FaRegHeart className="wishlist-icon" />
                       </div> */}
                     </div>
-                  </li>
+                  </div>
                 );
               })}
           </div>

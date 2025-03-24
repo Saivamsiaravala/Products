@@ -46,7 +46,7 @@ const Wishlist = () => {
             <div className="login">
               <NavLink to="/login">
                 <div className="login-title">Login</div>
-                <img src={loginImage} className="wishlist-image" />
+                <img src={loginImage} />
               </NavLink>
             </div>
           </div>
@@ -56,37 +56,32 @@ const Wishlist = () => {
               <div className="wishlist-items">
                 {wishListItems.map((item) => {
                   const { id, thumbnail, title } = item;
-                  // console.log(item.id);
-
                   return (
-                    <li
-                      key={id}
-                      style={{ color: "white" }}
-                      className="wishlist-item"
-                    >
-                      <div className="wishlist-item-title">
+                    <li key={id} className="wishlist-item">
+                      <div className="wishlist-item-title" title={title}>
                         {title.slice(0, 10)}...
                       </div>
-                      <div className="wishlist-image">
-                        <img src={thumbnail} />
+                      <div className="wishlist-image" title={title}>
+                        <img src={thumbnail} alt={title} />
                       </div>
                       <div className="move-to-cart">
-                        <button
+                        <motion.button
+                          whileTap={{ scale: 0.9 }}
                           className="move-to-cart-button"
                           onClick={() => cartHandler(id)}
                         >
                           Move to Cart {"  "}
-                          {/* <FaCartArrowDown style={{ color: "gray" }} /> */}
-                        </button>
+                        </motion.button>
                       </div>
-                      <div className="item-count-div">
-                        <button
+                      <div className="remove">
+                        <motion.button
+                          whileTap={{ scale: 0.9 }}
                           className="remove-item"
                           onClick={() => itemHandler(id)}
                         >
                           {/* <span className="item-count">Remove</span> */}
                           Remove
-                        </button>
+                        </motion.button>
                       </div>
                     </li>
                   );
@@ -94,8 +89,14 @@ const Wishlist = () => {
               </div>
             ) : (
               <div className="wishlist-empty">
-                <div className="wishlist-title">Add items to the Wishlist</div>
-                <img src={empty_wishlist} alt="" className="empty-wishlist" />
+                <div className="wishlist-title">Empty WishList</div>
+
+                <div className="add-products">
+                  <NavLink to="/" className="products-title">
+                    Go to Products
+                  </NavLink>
+                  <img src={empty_wishlist} alt="" className="empty-wishlist" />
+                </div>
               </div>
             )}
           </div>
