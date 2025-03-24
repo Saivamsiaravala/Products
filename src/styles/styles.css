@@ -74,6 +74,7 @@ main .home .products .product-items .product-item:hover {
 }
 main .home .products .product-items .product-item .product-image-title img {
   height: 30vh;
+  width: 30vh;
 }
 main .home .products .product-items .product-item .product-image-title .product-title {
   font-size: smaller;
@@ -169,6 +170,7 @@ main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-item-titl
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-image img {
   height: 30vh;
+  width: 30vh;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .move-to-cart button {
   width: 100%;
