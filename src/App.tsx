@@ -4,15 +4,16 @@ import { FaCartArrowDown, FaHeart } from "react-icons/fa";
 import { RiLoginBoxFill } from "react-icons/ri";
 import { FaHome } from "react-icons/fa";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "./hooks";
+import { useAppDispatch } from "./hooks";
 import { logIn } from "./Pages/LoginSlice";
 import { ToastContainer } from "react-toastify";
-// import Footer from "./Components/Footer";
+import { headerLogo } from "./assets";
+import { motion } from "framer-motion";
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const { totalWishListItems } = useAppSelector((store) => store.wishlist);
-  const { totalCartItems } = useAppSelector((store) => store.cart);
+  // const { totalWishListItems } = useAppSelector((store) => store.wishlist);
+  // const { totalCartItems } = useAppSelector((store) => store.cart);
   useEffect(() => {
     const keyWord =
       localStorage.getItem("Vamsi@gmail.com") ||
@@ -27,59 +28,82 @@ const App = () => {
     <main>
       <nav>
         <header>
-          <h1>Products</h1>
+          <img src={headerLogo} alt="Products" />
         </header>
         <div className="links">
-          <div className="link">
-            {/* className={(isActive) => isActive && "isActive"} */}
-            <NavLink to="">
-              <FaHome className="home-icon" />
+          <motion.div
+            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileTap={{ scale: 0.85 }}
+            transition={{ duration: 0.4 }}
+            className="link"
+          >
+            <NavLink to="" title="Home">
+              <FaHome className="icon" />
             </NavLink>
-          </div>
-
-          <div className="link">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileTap={{ scale: 0.85 }}
+            transition={{ duration: 0.4 }}
+            className="link"
+          >
             <NavLink
               title="Wishlist"
               to="wishlist"
               className={(isActive) => isActive && "isActive"}
             >
-              <FaHeart />
-              <sub style={{ fontSize: "small" }}>{totalWishListItems}</sub>
+              <FaHeart className="icon" />
               <sub>
                 <div></div>
               </sub>
             </NavLink>
-          </div>
-          <div className="link">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileTap={{ scale: 0.85 }}
+            transition={{ duration: 0.4 }}
+            className="link"
+          >
             <NavLink
               to="cart"
               title="Cart"
               className={(isActive) => isActive && "isActive"}
             >
-              <FaCartArrowDown />
-              <sub style={{ fontSize: "small" }}>{totalCartItems}</sub>
+              <FaCartArrowDown className="icon" />
+              {/* <sup
+                style={{
+                  fontSize: "small",
+                  fontWeight: "bold",
+                  textDecoration: "none",
+                  color: "blue",
+                }}
+              >
+                {totalCartItems}
+              </sup> */}
             </NavLink>
-          </div>
-          <div className="link">
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.3, rotate: 360 }}
+            whileTap={{ scale: 0.85 }}
+            transition={{ duration: 0.4 }}
+            className="link"
+          >
             <NavLink
               to="login"
               title="Login"
               className={(isActive) => isActive && "isActive"}
             >
-              <RiLoginBoxFill />
+              <RiLoginBoxFill className="icon" />
             </NavLink>
-          </div>
+          </motion.div>
         </div>
       </nav>
       <Routes>
-        <Route path="/" index element={<Products />} />
+        <Route path="" index element={<Products />} />
         <Route path="cart" element={<Cart />} />
         <Route path="wishlist" element={<Wishlist />} />
         <Route path="login" element={<Login />} />
       </Routes>
-      {/* <footer className="footer">
-        <Footer />
-      </footer> */}
       <ToastContainer position="top-center" autoClose={1000} />
     </main>
   );

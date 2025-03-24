@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from "../hooks";
 import { addItem, addSameItem } from "./Cart/CartSlice";
 import {
   addWishListItem,
-  addWishListItemCount,
+  // addWishListItemCount,
 } from "./Wishlist/WishlistSlice";
 import { toast } from "react-toastify";
 
@@ -25,22 +25,25 @@ const Products = () => {
     null
   );
   const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
-  // useEffect(() => {
-  //   wishListItemsId && console.log(wishListItemsId);
-  // }, [wishListItemsId]);
 
   const wishlistHandler = (id: number) => {
     // console.log(id);
+    // isLoggedIn && products
+    //   ? wishListItemsId.includes(id)
+    //     ? dispatch(addWishListItemCount(id)) &&
+    //       toast.success("Added to WishList Again")
+    //     : // &&          console.log(id + "old")
+    //       dispatch(addWishListItem({ Item: products[id - 1], id: id })) &&
+    //       toast.success("Added to Wishlist")
+    //   : // &&console.log(id + " new")
+    //     toast.error("please Login");
+
     isLoggedIn && products
       ? wishListItemsId.includes(id)
-        ? dispatch(addWishListItemCount(id)) &&
-          toast.success("Added to WishList Again")
-        : // &&          console.log(id + "old")
-          dispatch(
-            addWishListItem({ Item: products[id - 1], Count: 1, id: id })
-          ) && toast.success("Added to Wishlist")
-      : // &&console.log(id + " new")
-        toast.error("please Login");
+        ? toast.success("Item is added already")
+        : dispatch(addWishListItem({ Item: products[id - 1], Id: id })) &&
+          toast.success("Added to Wishlist")
+      : toast.error("Please Login");
   };
   const cartHandler = (id: number) => {
     // console.log(id);
@@ -55,7 +58,6 @@ const Products = () => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(url);
-      // console.log(data.products);
       setProducts(data.products);
       setCarouselProducts([
         data.products[0],
@@ -90,21 +92,23 @@ const Products = () => {
                 return (
                   <li key={index} className="product-item">
                     {/* {item.id} */}
-                    <div className="product-image-div">
-                      <img src={item.thumbnail} className="product-image" />
-                    </div>
                     <div
-                      className="product-title"
+                      className="product-image-title"
                       title="Click for product details"
                     >
-                      {item.title}
+                      <div className="product-image-div">
+                        <img src={item.thumbnail} className="product-image" />
+                      </div>
+                      <div className="product-title">
+                        {item.title.slice(0, 10)}...
+                      </div>
                     </div>
-                    <div className="price-wish-cart">
-                      <button className="price-div">
-                        <div className="price" title="Price">
-                          ${item.price}
-                        </div>
+                    <div className="price-div">
+                      <button className="price" title="Price">
+                        ${item.price}
                       </button>
+                    </div>
+                    <div className="wish-cart">
                       <button
                         className="wishlist-div"
                         title="wishlist"

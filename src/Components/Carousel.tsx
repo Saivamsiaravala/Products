@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { type ProductsType } from "../Types";
+import { motion } from "framer-motion";
 
 const Carousel = ({ carouselProducts }: { carouselProducts: ProductsType }) => {
   const [currentItem, setCurrentItem] = useState<number>(0);
@@ -17,17 +18,13 @@ const Carousel = ({ carouselProducts }: { carouselProducts: ProductsType }) => {
 
   return (
     <div className="carousel-div">
-      <div className="carousel-title" style={{ color: "white" }}>
-        {" "}
-        Select over a range of products
-      </div>
-      <div className="slider">
+      <div className="carousel-title">Select over a range of products</div>
+      <motion.div className="slider">
         <img
-          className="carousel-image"
           src={carouselProducts[currentItem].thumbnail}
           alt={carouselProducts[currentItem].description}
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

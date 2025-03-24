@@ -3,20 +3,31 @@ import { empty_wishlist } from "../../assets";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { NavLink } from "react-router-dom";
 import { loginImage } from "../../assets";
-import { addWishListItemCount, removeWishListItemCount } from "./WishlistSlice";
+import { removeWishListItem } from "./WishlistSlice";
+import { toast } from "react-toastify";
+import { addItem } from "../Cart/CartSlice";
 // import { FaCartArrowDown } from "react-icons/fa";
 
 const Wishlist = () => {
   const { wishListItems } = useAppSelector((store) => store.wishlist);
+  const { cartItemsId } = useAppSelector((store) => store.cart);
   const dispatch = useAppDispatch();
   const isLoggedIn: boolean = useAppSelector((store) => {
     return store.login.isLoggedIn;
   });
 
-  const itemHandler = (id: number, method: string) => {
-    // console.log(id);
-    if (method === "remove") dispatch(removeWishListItemCount(id));
-    else dispatch(addWishListItemCount(id));
+  const itemHandler = (id: number) => {
+    dispatch(removeWishListItem(id));
+  };
+  const cartHandler = (id: number) => {
+    const itemIndex = wishListItems.findIndex((item) => item.id === id);
+    const item = wishListItems[itemIndex];
+    // console.log(item);
+    // console.log(cartItemsId);
+    cartItemsId.includes(id)
+      ? toast.success("Item already in the cart")
+      : dispatch(addItem({ Item: item, Count: 1, id: id })) &&
+        toast.success("Added to Cart");
   };
 
   return (
@@ -44,20 +55,26 @@ const Wishlist = () => {
             {wishListItems.length ? (
               <div className="wishlist-items">
                 {wishListItems.map((item) => {
+                  const { id, thumbnail, title } = item;
+                  // console.log(item.id);
+
                   return (
                     <li
-                      key={item.Item.id}
+                      key={id}
                       style={{ color: "white" }}
                       className="wishlist-item"
                     >
                       <div className="wishlist-item-title">
-                        {item.Item.title.slice(0, 10)}...
+                        {title.slice(0, 10)}...
                       </div>
                       <div className="wishlist-image">
-                        <img src={item.Item.thumbnail} />
+                        <img src={thumbnail} />
                       </div>
                       <div className="move-to-cart">
-                        <button className="move-to-cart-button">
+                        <button
+                          className="move-to-cart-button"
+                          onClick={() => cartHandler(id)}
+                        >
                           Move to Cart {"  "}
                           {/* <FaCartArrowDown style={{ color: "gray" }} /> */}
                         </button>
@@ -65,16 +82,10 @@ const Wishlist = () => {
                       <div className="item-count-div">
                         <button
                           className="remove-item"
-                          onClick={() => itemHandler(item.Item.id, "remove")}
+                          onClick={() => itemHandler(id)}
                         >
-                          -
-                        </button>
-                        <span className="item-count">{item.Count}</span>
-                        <button
-                          className="add-item"
-                          onClick={() => itemHandler(item.Item.id, "add")}
-                        >
-                          +
+                          {/* <span className="item-count">Remove</span> */}
+                          Remove
                         </button>
                       </div>
                     </li>

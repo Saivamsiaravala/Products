@@ -35,8 +35,10 @@ export interface wishListItem {
   Item: Item;
   Count: number;
 }
-export interface wishListItemAndCount {
-  Item: Item & { Count: number };
+
+export interface wishListItemAndId {
+  Item: Item;
+  Id: number;
 }
 export interface wishListDupeItem {
   Item: Item;

@@ -1,5 +1,9 @@
 const Loading = () => {
-  return <div className="carousel-loading">Loading</div>;
+  return (
+    <div className="carousel-loading" style={{ color: "white" }}>
+      Loading
+    </div>
+  );
 };
 
 export default Loading;
