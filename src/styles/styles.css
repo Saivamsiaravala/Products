@@ -169,8 +169,8 @@ main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-item-titl
   text-align: center;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .wishlist-image img {
-  height: 30vh;
-  width: 30vh;
+  height: 20vh;
+  width: 20vh;
 }
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item .move-to-cart button {
   width: 100%;
