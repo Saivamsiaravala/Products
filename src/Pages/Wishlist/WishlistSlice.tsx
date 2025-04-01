@@ -42,6 +42,7 @@ const WishListSlice = createSlice({
       state.wishListItems = state.wishListItems.filter(
         (item) => item.id !== action.payload
       );
+
       // console.log(action.payload);
 
       state.wishListItemsId = state.wishListItemsId.filter(

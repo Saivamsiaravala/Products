@@ -8,6 +8,7 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 
 const Cart = () => {
   const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
+  const { totalCost } = useAppSelector((store) => store.cart);
   const dispatch = useAppDispatch();
   const cartItems: wishListItem[] = useAppSelector(
     (store) => store.cart.cartItems
@@ -98,6 +99,9 @@ const Cart = () => {
             )}
           </div>
         )}
+        <div className="totalcost">
+          Cart Total:${Number(totalCost.toFixed(2))}
+        </div>
       </div>
     </motion.div>
   );

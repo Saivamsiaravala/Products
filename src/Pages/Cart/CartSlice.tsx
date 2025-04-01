@@ -4,11 +4,13 @@ interface StateType {
   cartItems: wishListItem[];
   cartItemsId: number[];
   totalCartItems: number;
+  totalCost: number;
 }
 const initialState: StateType = {
   cartItems: [],
   cartItemsId: [],
   totalCartItems: 0,
+  totalCost: 0,
 };
 
 const cartSlice = createSlice({
@@ -22,6 +24,7 @@ const cartSlice = createSlice({
       ];
       state.cartItemsId = [...state.cartItemsId, action.payload.id];
       state.totalCartItems += 1;
+      state.totalCost += action.payload.Item.price;
     },
     addSameItem: (state, action: PayloadAction<number>) => {
       const num = state.cartItems.findIndex(
@@ -29,6 +32,9 @@ const cartSlice = createSlice({
       );
       state.cartItems[num].Count += 1;
       state.totalCartItems += 1;
+      state.totalCost += state.cartItems.filter(
+        (item) => item.Item.id === action.payload
+      )[0].Item.price;
     },
     increaseCartItemCount: (state, action: PayloadAction<number>) => {
       const num = state.cartItems.findIndex(
@@ -36,11 +42,17 @@ const cartSlice = createSlice({
       );
       state.cartItems[num].Count += 1;
       state.totalCartItems += 1;
+      state.totalCost += state.cartItems.filter(
+        (item) => item.Item.id === action.payload
+      )[0].Item.price;
     },
     decreaseCartItemCount: (state, action: PayloadAction<number>) => {
       const num = state.cartItems.findIndex(
         (item) => item.Item.id === action.payload
       );
+      state.totalCost -= state.cartItems.filter(
+        (item) => item.Item.id === action.payload
+      )[0].Item.price;
       state.cartItems[num].Count -= 1;
       if (state.cartItems[num].Count === 0) {
         state.cartItems.splice(num, 1),
@@ -48,14 +60,6 @@ const cartSlice = createSlice({
           (state.totalCartItems -= 1);
       }
     },
-    // moveToCart: (state, action: PayloadAction<number>) => {
-    //   state.cartItems = [
-    //     ...state.cartItems,
-    //     { Item: action.payload.Item, Count: 1 },
-    //   ];
-    //   state.cartItemsId = [...state.cartItemsId, action.payload.id];
-    //   state.totalCartItems += 1;
-    // },
 
     removeItem: (state) => {
       state.cartItems = [];

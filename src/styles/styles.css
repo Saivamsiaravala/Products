@@ -309,6 +309,11 @@ main .cart .cart-grid .cart-items .cart-item .count-div button {
 main .cart .cart-grid .cart-items .cart-item .count-div button .icon {
   font-size: small;
 }
+main .cart .totalcost {
+  text-align: center;
+  font-size: large;
+  background-color: white;
+}
 main .login-panel {
   background-color: white;
   width: 50vw;

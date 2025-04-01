@@ -12,8 +12,7 @@ import { motion } from "framer-motion";
 
 const App = () => {
   const dispatch = useAppDispatch();
-  // const { totalWishListItems } = useAppSelector((store) => store.wishlist);
-  // const { totalCartItems } = useAppSelector((store) => store.cart);
+
   useEffect(() => {
     const keyWord =
       localStorage.getItem("Vamsi@gmail.com") ||
