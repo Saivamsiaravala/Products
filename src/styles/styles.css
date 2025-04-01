@@ -135,8 +135,8 @@ main .wishlist .wishlist-login .login .login-title {
   margin-bottom: 2vw;
 }
 main .wishlist .wishlist-login .login img {
-  height: 40vh;
-  width: 60vh;
+  max-width: 100%;
+  height: auto;
 }
 main .wishlist .wishlist-login .login:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -228,8 +228,8 @@ main .cart .cart-login .login .login-title {
   margin-bottom: 2vw;
 }
 main .cart .cart-login .login img {
-  height: 40vh;
-  width: 60vh;
+  max-width: 100%;
+  height: auto;
 }
 main .cart .cart-login .login:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;

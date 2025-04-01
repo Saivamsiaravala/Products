@@ -195,8 +195,8 @@ main {
           margin-bottom: Margins(margin2);
         }
         img {
-          height: 40vh;
-          width: 60vh;
+          max-width: 100%;
+          height: auto;
         }
         &:hover {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
@@ -303,8 +303,8 @@ main {
           margin-bottom: Margins(margin2);
         }
         img {
-          height: 40vh;
-          width: 60vh;
+          max-width: 100%;
+          height: auto;
         }
         &:hover {
           box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
