@@ -91,16 +91,16 @@ const Wishlist = () => {
               <div className="wishlist-empty">
                 <div className="wishlist-title">Empty WishList</div>
 
-                <div className="add-products">
-                  <NavLink to="/" className="link">
-                    <div className="products-title">Go to Products</div>
+                <NavLink to="/" className="add-products">
+                  <div className="link">
+                    <div className="products-title">Add Products</div>
                     <img
                       src={empty_wishlist}
                       alt=""
                       className="empty-wishlist"
                     />
-                  </NavLink>
-                </div>
+                  </div>
+                </NavLink>
               </div>
             )}
           </div>

@@ -5,6 +5,9 @@ import { NavLink } from "react-router-dom";
 import { wishListItem } from "../../Types";
 import { decreaseCartItemCount, increaseCartItemCount } from "./CartSlice";
 import { FaPlus, FaMinus } from "react-icons/fa6";
+import { FaRegMoneyBillAlt } from "react-icons/fa";
+
+// import { MdAttachMoney } from "react-icons/md";
 
 const Cart = () => {
   const isLoggedIn: boolean = useAppSelector((store) => store.login.isLoggedIn);
@@ -40,68 +43,71 @@ const Cart = () => {
         ) : (
           <div className="cart-grid">
             {cartItems.length ? (
-              <div className="cart-items">
-                {cartItems.map((item) => {
-                  const { id, title, thumbnail, price } = item.Item;
-                  const { Count } = item;
-                  return (
-                    <li key={id} className="cart-item">
-                      <div className="cart-item-title" title={title}>
-                        {title.slice(0, 10)}...
-                      </div>
-                      <div className="cart-image">
-                        <img src={thumbnail} />
-                      </div>
-                      <div className="cart-price">${price}</div>
-                      <div className="count-div">
-                        <motion.button
-                          className="remove-item"
-                          whileTap={{ scale: 0.85 }}
-                          onClick={() => cartItemHandler(id, "remove")}
-                        >
-                          <FaMinus
-                            className="icon"
-                            style={{ fontSize: "small" }}
-                          />
-                        </motion.button>
-                        <span className="item-count">{Count}</span>
-                        <motion.button
-                          whileTap={{ scale: 0.85 }}
-                          className="add-item"
-                          onClick={() => cartItemHandler(id, "add")}
-                        >
-                          <FaPlus className="icon" />
-                        </motion.button>
-                      </div>
-                    </li>
-                  );
-                })}
-              </div>
+              <>
+                <div className="cart-items">
+                  {cartItems.map((item) => {
+                    const { id, title, thumbnail, price } = item.Item;
+                    const { Count } = item;
+                    return (
+                      <li key={id} className="cart-item">
+                        <div className="cart-item-title" title={title}>
+                          {title.slice(0, 10)}...
+                        </div>
+                        <div className="cart-image">
+                          <img src={thumbnail} />
+                        </div>
+                        <div className="cart-price">${price}</div>
+                        <div className="count-div">
+                          <motion.button
+                            className="remove-item"
+                            whileTap={{ scale: 0.85 }}
+                            onClick={() => cartItemHandler(id, "remove")}
+                          >
+                            <FaMinus
+                              className="icon"
+                              style={{ fontSize: "small" }}
+                            />
+                          </motion.button>
+                          <span className="item-count">{Count}</span>
+                          <motion.button
+                            whileTap={{ scale: 0.85 }}
+                            className="add-item"
+                            onClick={() => cartItemHandler(id, "add")}
+                          >
+                            <FaPlus className="icon" />
+                          </motion.button>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </div>
+                <div className="totalcost">
+                  <FaRegMoneyBillAlt className="dollar" />
+                  Total :${Number(totalCost.toFixed(2))}
+                </div>
+              </>
             ) : (
               <div className="cart-empty">
                 <div className="cart-title"> Empty Cart</div>
-                <div className="add-products">
-                  <NavLink to="/" className="link">
+                <NavLink to="/" className="add-products">
+                  <div className="link">
                     <div
                       className="products-title"
                       style={{ textDecoration: "none" }}
                     >
-                      Go to Products
+                      Add Products
                     </div>
                     <img
                       src={empty_cart}
                       alt="empty wishlist"
                       className="empty-wishlist"
                     />
-                  </NavLink>
-                </div>
+                  </div>
+                </NavLink>
               </div>
             )}
           </div>
         )}
-        <div className="totalcost">
-          Cart Total:${Number(totalCost.toFixed(2))}
-        </div>
       </div>
     </motion.div>
   );

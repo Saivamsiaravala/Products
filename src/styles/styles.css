@@ -4,27 +4,61 @@ body {
 
 main {
   background-color: white;
+  overflow-x: hidden;
 }
 main nav {
   padding: 1vw;
-  border-bottom: 4px solid white;
+  border-bottom: 4px solid black;
   display: flex;
-  height: 20vh;
+  flex-direction: column;
+  height: 30vh;
+}
+@media (min-width: 768px) {
+  main nav {
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  main nav {
+    height: 15vh;
+  }
 }
 main nav header {
   height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  main nav header {
+    height: 15vh;
+  }
+}
+@media (min-width: 1024px) {
+  main nav header {
+    height: 15vh;
+  }
 }
 main nav header img {
   height: 20vh;
   width: 40vw;
 }
+@media (min-width: 768px) {
+  main nav header img {
+    height: 15vh;
+    width: 15vw;
+  }
+}
+@media (min-width: 1024px) {
+  main nav header img {
+    height: 15vh;
+    width: 10vw;
+  }
+}
 main nav .links {
   width: 100vw;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
   background-color: rgba(237, 237, 237, 0.1);
@@ -35,12 +69,6 @@ main nav .links {
 main nav .links .icon {
   font-size: x-large;
   color: black;
-}
-@media (min-width: 768px) {
-  main nav {
-    display: flex;
-    flex-direction: column;
-  }
 }
 main .home {
   display: flex;
@@ -153,6 +181,12 @@ main .wishlist .wishlist-login .login img {
   max-width: 100%;
   height: auto;
 }
+@media (min-width: 768px) {
+  main .wishlist .wishlist-login .login img {
+    max-width: 50%;
+    margin: 1vw auto;
+  }
+}
 main .wishlist .wishlist-login .login:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
@@ -168,10 +202,14 @@ main .wishlist .wishlist-grid .wishlist-empty .wishlist-title {
 main .wishlist .wishlist-grid .wishlist-empty .add-products {
   padding: 2vw;
   border: 1px solid lightpink;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: pink;
 }
 main .wishlist .wishlist-grid .wishlist-empty .add-products:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -186,7 +224,14 @@ main .wishlist .wishlist-grid .wishlist-empty .add-products .link .products-titl
 }
 main .wishlist .wishlist-grid .wishlist-empty .add-products .link img {
   height: 40vh;
-  width: 50vw;
+  width: 40vw;
+}
+@media (min-width: 768px) {
+  main .wishlist .wishlist-grid .wishlist-empty .add-products .link img {
+    max-width: 40%;
+    height: 50vh;
+    margin: 1vw auto;
+  }
 }
 main .wishlist .wishlist-grid .wishlist-items {
   padding: 2vw 0;
@@ -194,10 +239,21 @@ main .wishlist .wishlist-grid .wishlist-items {
   grid-template-columns: repeat(2, 1fr);
   list-style: none;
   place-items: center;
-  gap: 2vh;
+  gap: 3vh;
   margin: 1vw;
 }
+@media (min-width: 768px) {
+  main .wishlist .wishlist-grid .wishlist-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  main .wishlist .wishlist-grid .wishlist-items {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
 main .wishlist .wishlist-grid .wishlist-items .wishlist-item {
+  background-color: pink;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 4%;
   padding: 2vw;
@@ -246,6 +302,12 @@ main .cart .cart-login .login img {
   max-width: 100%;
   height: auto;
 }
+@media (min-width: 768px) {
+  main .cart .cart-login .login img {
+    max-width: 50%;
+    margin: 1vw auto;
+  }
+}
 main .cart .cart-login .login:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
@@ -261,10 +323,12 @@ main .cart .cart-grid .cart-empty .cart-title {
 main .cart .cart-grid .cart-empty .add-products {
   padding: 2vw;
   border: 1px solid lightpink;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color: pink;
 }
 main .cart .cart-grid .cart-empty .add-products:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -279,7 +343,14 @@ main .cart .cart-grid .cart-empty .add-products .link .products-title {
 }
 main .cart .cart-grid .cart-empty .add-products .link img {
   height: 40vh;
-  width: 50vw;
+  width: 40vw;
+}
+@media (min-width: 768px) {
+  main .cart .cart-grid .cart-empty .add-products .link img {
+    max-width: 40%;
+    height: 50vh;
+    margin: 1vw auto;
+  }
 }
 main .cart .cart-grid .cart-items {
   padding: 2vw 0;
@@ -287,11 +358,22 @@ main .cart .cart-grid .cart-items {
   grid-template-columns: repeat(2, 1fr);
   list-style: none;
   place-items: center;
-  gap: 2vh;
+  gap: 3vh;
   margin: 1vw;
+}
+@media (min-width: 768px) {
+  main .cart .cart-grid .cart-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  main .cart .cart-grid .cart-items {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 main .cart .cart-grid .cart-items .cart-item {
   border-radius: 4%;
+  background-color: pink;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: 1px solid lightpink;
   padding: 2vw;
@@ -326,19 +408,33 @@ main .cart .cart-grid .cart-items .cart-item .count-div button {
 main .cart .cart-grid .cart-items .cart-item .count-div button .icon {
   font-size: small;
 }
-main .cart .totalcost {
+main .cart .cart-grid .totalcost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1vw;
+  height: 10vh;
+  margin: 2vw auto;
   text-align: center;
+  border-radius: 6px;
+  color: black;
   font-size: large;
-  background-color: white;
+  background-color: rgb(116, 116, 203);
+}
+main .cart .cart-grid .totalcost .dollar {
+  font-size: 25px;
 }
 main .login-panel {
-  border: 2px solid black;
+  border: 2px solid transparent;
   text-align: center;
   width: 50vw;
   margin: 4vw auto;
   padding: 4vw;
   padding-bottom: 0;
-  background-color: rgb(116, 116, 203);
+  background-color: pink;
+  border-radius: 6px;
 }
 main .login-panel .login-signup {
   width: 90%;
@@ -408,7 +504,7 @@ main .login-panel .account .details .address-div .address,
 main .login-panel .account .details .address-div .address-icon {
   width: 100%;
   text-align: left;
-  font-weight: 700;
+  font-weight: 300;
 }
 main .login-panel .account .details .name-div .name-icon,
 main .login-panel .account .details .name-div .address-icon,
@@ -418,10 +514,7 @@ main .login-panel .account .details .address-div .address-icon {
   font-size: larger;
 }
 main .login-panel .account .logout button {
-  margin: 2vw auto;
-  border: transparent;
-  width: 50%;
   background-color: black;
-  color: pink;
-  font-weight: 700;
+  padding: 1vw;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */
