@@ -52,6 +52,7 @@ const Wishlist = () => {
           </div>
         ) : (
           <div className="wishlist-grid">
+            <div className="wishlist">WishList</div>
             {wishListItems.length ? (
               <div className="wishlist-items">
                 {wishListItems.map((item) => {

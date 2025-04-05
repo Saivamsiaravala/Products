@@ -66,6 +66,23 @@ main nav .links {
           backdrop-filter: blur(10px);
   min-height: 40px;
 }
+main nav .links div {
+  display: flex;
+}
+main nav .links div isActive {
+  color: white;
+}
+main nav .links div span {
+  display: none;
+}
+@media (min-width: 768px) {
+  main nav .links div span {
+    display: block;
+    font-size: large;
+    text-decoration-line: none !important;
+    color: black;
+  }
+}
 main nav .links .icon {
   font-size: x-large;
   color: black;
@@ -190,13 +207,19 @@ main .wishlist .wishlist-login .login img {
 main .wishlist .wishlist-login .login:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+main .wishlist .wishlist-grid .wishlist {
+  margin: 1vw auto;
+  text-align: center;
+  font-weight: 700;
+  font-size: x-large;
+  padding: 1vw;
+  border-bottom: 2px solid black;
+  width: 50%;
+}
 main .wishlist .wishlist-grid .wishlist-empty {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   text-align: center;
-  margin: 3vw 0;
-}
-main .wishlist .wishlist-grid .wishlist-empty .wishlist-title {
   margin: 3vw 0;
 }
 main .wishlist .wishlist-grid .wishlist-empty .add-products {
@@ -311,13 +334,19 @@ main .cart .cart-login .login img {
 main .cart .cart-login .login:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+main .cart .cart-grid .cart {
+  margin: 1vw auto;
+  text-align: center;
+  font-weight: 700;
+  font-size: x-large;
+  padding: 1vw;
+  border-bottom: 2px solid black;
+  width: 50%;
+}
 main .cart .cart-grid .cart-empty {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   text-align: center;
-  margin: 3vw 0;
-}
-main .cart .cart-grid .cart-empty .cart-title {
   margin: 3vw 0;
 }
 main .cart .cart-grid .cart-empty .add-products {

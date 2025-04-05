@@ -42,6 +42,7 @@ const Cart = () => {
           </div>
         ) : (
           <div className="cart-grid">
+            <div className="cart">Cart</div>
             {cartItems.length ? (
               <>
                 <div className="cart-items">

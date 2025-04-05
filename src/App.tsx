@@ -36,10 +36,17 @@ const App = () => {
             transition={{ duration: 0.4 }}
             className="link"
           >
-            <NavLink to="" title="Home">
-              <FaHome className="icon" />
+            <NavLink
+              to=""
+              title="Home"
+              className={(isActive) => (isActive ? "home isActive" : "home")}
+            >
+              <div>
+                <span>Home</span> <FaHome className="icon" />
+              </div>
             </NavLink>
           </motion.div>
+
           <motion.div
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.85 }}
@@ -49,14 +56,16 @@ const App = () => {
             <NavLink
               title="Wishlist"
               to="wishlist"
-              className={(isActive) => isActive && "isActive"}
+              className={(isActive) =>
+                isActive ? "wishlist isActive" : "wishlist"
+              }
             >
-              <FaHeart className="icon" />
-              <sub>
-                <div></div>
-              </sub>
+              <div>
+                <span>WishList</span> <FaHeart className="icon" />
+              </div>
             </NavLink>
           </motion.div>
+
           <motion.div
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.85 }}
@@ -66,9 +75,12 @@ const App = () => {
             <NavLink
               to="cart"
               title="Cart"
-              className={(isActive) => isActive && "isActive"}
+              className={(isActive) => (isActive ? "cart isActive" : "cart")}
             >
-              <FaCartArrowDown className="icon" />
+              <div>
+                <span>Cart</span>
+                <FaCartArrowDown className="icon" />
+              </div>
               {/* <sup
                 style={{
                   fontSize: "small",
@@ -81,6 +93,7 @@ const App = () => {
               </sup> */}
             </NavLink>
           </motion.div>
+
           <motion.div
             whileHover={{ scale: 1.3 }}
             whileTap={{ scale: 0.85 }}
@@ -90,9 +103,12 @@ const App = () => {
             <NavLink
               to="login"
               title="Login"
-              className={(isActive) => isActive && "isActive"}
+              className={(isActive) => (isActive ? "login isActive" : "login")}
             >
-              <RiLoginBoxFill className="icon" />
+              <div>
+                <span>Account</span>
+                <RiLoginBoxFill className="icon" />
+              </div>
             </NavLink>
           </motion.div>
         </div>
