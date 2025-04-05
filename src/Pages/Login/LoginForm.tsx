@@ -18,34 +18,36 @@ const LoginForm = () => {
     }
   };
   return (
-    <div className="login-form">
+    <>
       <form className="form" onSubmit={(event) => submitHandler(event)}>
         <div className="name">
+          <label htmlFor="" className="name-label">
+            Email
+          </label>
           <input
-            name="email"
             type="text"
-            placeholder="Email Address"
             className="name-input"
             onChange={(e) => setEmail(e.target.value)}
-            autoComplete="off"
             autoFocus
+            autoComplete="off"
           />
         </div>
         <div className="password">
+          <label htmlFor="" className="password-label">
+            Password
+          </label>
+
           <input
-            name="password"
             type="password"
-            placeholder="Password"
             className="password-input"
             onChange={(e) => setPassword(e.target.value)}
-            autoComplete="Off"
           />
         </div>
         <button type="submit" className="submit">
           Login
         </button>
       </form>
-    </div>
+    </>
   );
 };
 

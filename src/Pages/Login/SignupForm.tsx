@@ -17,34 +17,30 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="signup-form">
+    <div>
       <form className="form" onSubmit={(event) => submitHandler(event)}>
         <div className="name">
           <label htmlFor="" className="name-label">
             Email
           </label>
-          <div className="name">
-            <input
-              type="text"
-              className="name-input"
-              onChange={(e) => setEmail(e.target.value)}
-              autoFocus
-              autoComplete="off"
-            />
-          </div>
+          <input
+            type="text"
+            className="name-input"
+            onChange={(e) => setEmail(e.target.value)}
+            autoFocus
+            autoComplete="off"
+          />
         </div>
         <div className="password">
           <label htmlFor="" className="password-label">
             Password
           </label>
 
-          <div className="password">
-            <input
-              type="password"
-              className="password-input"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+          <input
+            type="password"
+            className="password-input"
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <button type="submit" className="submit">
           Login

@@ -35,9 +35,7 @@ const Login = () => {
               </div>
               <div className="address-div">
                 <IoLocationSharp className="address-icon" />
-                <div className="address">
-                  Doorno-1234, Street1 ,Hyderabad ,Telangana
-                </div>
+                <div className="address">Doorno-1234, Hyderabad </div>
               </div>
             </div>
             <div className="logout">
@@ -53,7 +51,7 @@ const Login = () => {
             </div>
           </div>
         ) : (
-          <div>
+          <>
             <div className="login-signup">
               <button
                 onClick={() => setIsLogin(true)}
@@ -71,7 +69,7 @@ const Login = () => {
             <div className="main-panel">
               <div>{isLogin ? <LoginForm /> : <SignupForm />}</div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </motion.div>

@@ -62,7 +62,7 @@ main .home .products .product-items {
   gap: 2vh;
   margin: 1vw;
 }
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   main .home .products .product-items {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -86,7 +86,7 @@ main .home .products .product-items .product-item .product-image-title img {
   height: 20vh;
   width: 20vh;
 }
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   main .home .products .product-items .product-item .product-image-title img {
     height: 30vh;
     width: 30vh;
@@ -317,34 +317,96 @@ main .cart .totalcost {
   background-color: white;
 }
 main .login-panel {
-  background-color: white;
+  border: 2px solid black;
+  text-align: center;
   width: 50vw;
-  margin: 2vw auto;
+  margin: 4vw auto;
+  padding: 4vw;
+  padding-bottom: 0;
+  background-color: rgb(116, 116, 203);
 }
 main .login-panel .login-signup {
-  padding: 2vw;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
-  border-radius: 4%;
-  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 2vw;
 }
-main .login-panel .login-signup button {
-  width: 50vw;
-  font-weight: bold;
-  border-radius: 4%;
+main .login-panel .login-signup .login,
+main .login-panel .login-signup .signup {
+  font-weight: 700;
+  width: 50%;
+  border: transparent;
+  transition: 1s;
+  border-radius: 10px;
 }
 main .login-panel .login-signup .active {
-  background-color: wheat;
+  background-color: black;
+  color: white;
 }
 main .login-panel .main-panel {
-  border-top: 2px solid lightpink;
   padding: 2vw;
-  text-align: center;
+  border-top: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
-main .login-panel .main-panel .login-form .form .name input :focus {
-  border: none;
-  border-bottom: blue;
+main .login-panel .main-panel .form .name,
+main .login-panel .main-panel .form .password {
+  display: flex;
+  flex-direction: column;
 }
-main .login-panel .main-panel .login-form .form .password input:focus {
-  border: none;
-  border-bottom: blue;
+main .login-panel .main-panel .form .name label,
+main .login-panel .main-panel .form .password label {
+  display: flex;
+  justify-content: start;
+}
+main .login-panel .main-panel .form .name input,
+main .login-panel .main-panel .form .password input {
+  background-color: blue;
+}
+main .login-panel .main-panel .form button {
+  margin: 2vw auto;
+  border: transparent;
+  width: 50%;
+  background-color: black;
+  color: pink;
+  font-weight: 700;
+}
+main .login-panel .account .details {
+  margin: 2vw auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2vw;
+}
+main .login-panel .account .details .name-div,
+main .login-panel .account .details .address-div {
+  display: flex;
+}
+main .login-panel .account .details .name-div .name,
+main .login-panel .account .details .name-div .name-icon,
+main .login-panel .account .details .name-div .address,
+main .login-panel .account .details .name-div .address-icon,
+main .login-panel .account .details .address-div .name,
+main .login-panel .account .details .address-div .name-icon,
+main .login-panel .account .details .address-div .address,
+main .login-panel .account .details .address-div .address-icon {
+  width: 100%;
+  text-align: left;
+  font-weight: 700;
+}
+main .login-panel .account .details .name-div .name-icon,
+main .login-panel .account .details .name-div .address-icon,
+main .login-panel .account .details .address-div .name-icon,
+main .login-panel .account .details .address-div .address-icon {
+  width: 30%;
+  font-size: larger;
+}
+main .login-panel .account .logout button {
+  margin: 2vw auto;
+  border: transparent;
+  width: 50%;
+  background-color: black;
+  color: pink;
+  font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */
