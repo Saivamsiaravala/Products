@@ -1,9 +1,9 @@
 body {
-  background-color: pink;
+  background-color: white;
 }
 
 main {
-  background-color: pink;
+  background-color: white;
 }
 main nav {
   padding: 1vw;
@@ -13,6 +13,9 @@ main nav {
 }
 main nav header {
   height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 main nav header img {
   height: 20vh;
@@ -24,10 +27,20 @@ main nav .links {
   justify-content: space-around;
   align-items: center;
   color: white;
+  background-color: rgba(237, 237, 237, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  min-height: 40px;
 }
 main nav .links .icon {
   font-size: x-large;
   color: black;
+}
+@media (min-width: 768px) {
+  main nav {
+    display: flex;
+    flex-direction: column;
+  }
 }
 main .home {
   display: flex;
@@ -41,6 +54,7 @@ main .home .carousel .carousel-div {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   border-bottom: 4px solid white;
+  background-color: pink;
 }
 main .home .carousel .carousel-div img {
   margin: 2vw 0;
@@ -59,7 +73,7 @@ main .home .products .product-items {
   grid-template-columns: repeat(2, 1fr);
   list-style: none;
   place-items: center;
-  gap: 2vh;
+  gap: 3vh;
   margin: 1vw;
 }
 @media (min-width: 768px) {
@@ -73,6 +87,7 @@ main .home .products .product-items {
   }
 }
 main .home .products .product-items .product-item {
+  background-color: pink;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 2vw 0;
   text-align: center;

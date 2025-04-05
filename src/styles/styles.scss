@@ -6,6 +6,7 @@ $colors: (
   bgColor2: pink,
   bgColor3: rgb(116, 116, 203),
   bgColor4: black,
+  bgColor5: white,
 );
 
 $border: 2px solid red;
@@ -53,10 +54,10 @@ $breakpoints: (
   @return map-get($map: $paddings, $key: $padding);
 }
 body {
-  background-color: Colors(bgColor2);
+  background-color: Colors(bgColor5);
 }
 main {
-  background-color: Colors(bgColor2);
+  background-color: Colors(bgColor5);
   @include responsive(tablet) {
   }
   nav {
@@ -64,6 +65,7 @@ main {
     // margin-bottom: Margins(margin2);
     border-bottom: 4px solid white;
     display: flex;
+    // flex-direction: column;
     height: 20vh;
     header {
       height: 20vh;
@@ -71,6 +73,9 @@ main {
         height: 20vh;
         width: 40vw;
       }
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .links {
       width: 100vw;
@@ -78,10 +83,17 @@ main {
       justify-content: space-around;
       align-items: center;
       color: Colors(textColor2);
+      background-color: rgb(237, 237, 237, 0.1);
+      backdrop-filter: blur(10px);
+      min-height: 40px;
       .icon {
         font-size: x-large;
         color: black;
       }
+    }
+    @include responsive(tablet) {
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -95,6 +107,7 @@ main {
         font-family: Arial, Helvetica, sans-serif;
         font-weight: 400;
         border-bottom: 4px solid white;
+        background-color: Colors(bgColor2);
         img {
           margin: Margins(margin2) 0;
           border-radius: 10%;
@@ -112,7 +125,6 @@ main {
         font-weight: 400;
       }
       .product-items {
-        // width: 100vh;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         @include responsive(tablet) {
@@ -123,9 +135,10 @@ main {
         }
         list-style: none;
         place-items: center;
-        gap: 2vh;
+        gap: 3vh;
         margin: Margins(margin1);
         .product-item {
+          background-color: Colors(bgColor2);
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           padding: Paddings(padding2) 0;
           text-align: center;
